@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentElement>
+  <AthenaImport>
+    <JobId>209248</JobId>
+    <OrderId>284037</OrderId>
+    <PurchaseOrderNumber>7000156556</PurchaseOrderNumber>
+    <PurchaseOrderLine>10</PurchaseOrderLine>
+    <CustomerAccountCode>1795</CustomerAccountCode>
+    <JobQty>30000</JobQty>
+    <ASCMOrderID>23925</ASCMOrderID>
+    <EndCustomer>Intel Security</EndCustomer>
+    <ActivationSystem>POSA</ActivationSystem>
+    <ProductType>Free Text-McAfee NFR PIN+SEQ
+</ProductType>
+    <ErpMaterialCode>41350133</ErpMaterialCode>
+    <FAIStart>1</FAIStart>
+    <FAIEnd>1</FAIEnd>
+    <ContractTypeLVId>M6 POSA</ContractTypeLVId>
+    <PartNumberSku>951-0825-19_23925</PartNumberSku>
+    <JobComments>BusinessModel = Non POSA 
+ScratchON/OFF = True 
+PartNumber = 951-0922-01 
+TopLevelSku = MTP31UAG5RTMB 
+CartonRetailCode = 0
+QrCodeRequired = True </JobComments>
+    <JobTypeLVId></JobTypeLVId>
+    <SpecificationLVId></SpecificationLVId>
+    <UPC></UPC>
+    <ArtworkPartNumber></ArtworkPartNumber>
+    <PackQty></PackQty>
+    <BoxQty></BoxQty>
+    <PalletQty></PalletQty>
+    <Description></Description>
+    <IncommRetailer></IncommRetailer>
+    <IncommProductDescription>test1</IncommProductDescription>
+    <Denomination></Denomination>
+    <DenominationCurrency></DenominationCurrency>
+    <AlternativePartNumber>MTP31UAG5RTMB</AlternativePartNumber>
+    <PackagingGTIN></PackagingGTIN>
+    <BHNPONumber></BHNPONumber>
+    <MSRequestNumber1></MSRequestNumber1>
+    <BOMComment1></BOMComment1>
+    <PKPN1></PKPN1>
+    <MSRequestNumber2></MSRequestNumber2>
+    <BOMComment2></BOMComment2>
+    <PKPN2></PKPN2>
+    <MSRequestNumber3></MSRequestNumber3>
+    <BOMComment3></BOMComment3>
+    <PKPN3></PKPN3>
+    <MSRequestNumber4></MSRequestNumber4>
+    <BOMComment4></BOMComment4>
+    <PKPN4></PKPN4>
+    <MSRequestNumber5></MSRequestNumber5>
+    <BOMComment5></BOMComment5>
+    <PKPN5></PKPN5>
+  </AthenaImport>
+  <AthenaImport>
+    <JobId>209249</JobId>
+    <OrderId>284037</OrderId>
+    <PurchaseOrderNumber>7000156556</PurchaseOrderNumber>
+    <PurchaseOrderLine>20</PurchaseOrderLine>
+    <CustomerAccountCode>1795</CustomerAccountCode>
+    <JobQty>4000</JobQty>
+    <ASCMOrderID>23926</ASCMOrderID>
+    <EndCustomer>Intel Security</EndCustomer>
+    <ActivationSystem>POSA</ActivationSystem>
+    <ProductType>Free Text-McAfee NFR PIN+SEQ
+</ProductType>
+    <ErpMaterialCode>41350172</ErpMaterialCode>
+    <FAIStart>1</FAIStart>
+    <FAIEnd>1</FAIEnd>
+    <ContractTypeLVId>M6 POSA</ContractTypeLVId>
+    <PartNumberSku>951-0826-19_23926</PartNumberSku>
+    <JobComments>BusinessModel = Non POSA 
+ScratchON/OFF = TRUE x2 
+PartNumber = 951-0922-01 
+TopLevelSku = MTP31UAG5RTMB x2 
+CartonRetailCode = 0
+QrCodeRequired = TRUE </JobComments>
+    <JobTypeLVId></JobTypeLVId>
+    <SpecificationLVId></SpecificationLVId>
+    <UPC></UPC>
+    <ArtworkPartNumber></ArtworkPartNumber>
+    <PackQty></PackQty>
+    <BoxQty></BoxQty>
+    <PalletQty></PalletQty>
+    <Description></Description>
+    <IncommRetailer></IncommRetailer>
+    <IncommProductDescription>test2</IncommProductDescription>
+    <Denomination></Denomination>
+    <DenominationCurrency></DenominationCurrency>
+    <AlternativePartNumber>MTP31UAG5RTMB x2</AlternativePartNumber>
+    <PackagingGTIN></PackagingGTIN>
+    <BHNPONumber></BHNPONumber>
+    <MSRequestNumber1></MSRequestNumber1>
+    <BOMComment1></BOMComment1>
+    <PKPN1></PKPN1>
+    <MSRequestNumber2></MSRequestNumber2>
+    <BOMComment2></BOMComment2>
+    <PKPN2></PKPN2>
+    <MSRequestNumber3></MSRequestNumber3>
+    <BOMComment3></BOMComment3>
+    <PKPN3></PKPN3>
+    <MSRequestNumber4></MSRequestNumber4>
+    <BOMComment4></BOMComment4>
+    <PKPN4></PKPN4>
+    <MSRequestNumber5></MSRequestNumber5>
+    <BOMComment5></BOMComment5>
+    <PKPN5></PKPN5>
+  </AthenaImport>
+</DocumentElement>

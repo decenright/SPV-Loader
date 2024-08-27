@@ -1,0 +1,671 @@
+﻿@model SPV_Loader.Models.AthenaViewModel
+
+@{
+    ViewBag.Title = "Index";
+
+    bool isProcessingCompleted = false;
+    if (TempData["allItemsProcessed"] != null && (bool)TempData["allItemsProcessed"])
+    {
+        isProcessingCompleted = true;
+    }
+    WebGrid grid = new WebGrid(Model.AthenaList, canPage: false);
+}
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    $(function () {
+        $("#slider").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 1,
+            slide: function (event, ui) {
+                updateSliderValue(ui.value);
+            },
+            stop: function (event, ui) {
+                updateSliderValue(ui.value);
+                $("#slider-value-input").val($("#slider-value").text());
+            }
+        });
+
+        // Set the initial value to 'Marketing'
+        updateSliderValue(0);
+    });
+
+    function updateSliderValue(value) {
+        var sliderValue = value === 0 ? 'IsNotDach' : 'IsDach';
+        $("#slider-value").text(sliderValue);
+        var textAlignment = value === 0 ? 'left' : 'right';
+        $("#slider-value").css('text-align', textAlignment);
+    }
+</script>
+
+<script>
+    function bs_input_file() {
+        $(".input-file").before(
+            function () {
+                if (!$(this).prev().hasClass('input-ghost')) {
+                    var element = $("<input type='file' id='dataFile' name='upload' class='input-ghost' style='visibility:hidden; height:0'>");
+                    element.attr("name", $(this).attr("name"));
+                    element.change(function () {
+                        element.next(element).find('input').val((element.val()).split('\\').pop());
+                    });
+                    $(this).find("button.btn-choose").click(function () {
+                        element.click();
+                    });
+                    $(this).find("button.btn-reset").click(function () {
+                        element.val(null);
+                        $(this).parents(".input-file").find('input').val('');
+                    });
+                    $(this).find('input').css("cursor", "pointer");
+                    $(this).find('input').mousedown(function () {
+                        $(this).parents('.input-file').prev().click();
+                        return false;
+                    });
+                    return element;
+                }
+            }
+        );
+    }
+
+    function clear() {
+        var input = $("#dataFile").val('');
+    };
+    $(function () {
+        clear();
+        bs_input_file();
+    });
+</script>
+
+@if (!isProcessingCompleted)
+{
+    <div class="grid-container">
+        <!-- ImportOrder -->
+        <div class="grid-item">
+            @using (Html.BeginForm("ImportOrder", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.IsDach)
+
+                <table>
+                    <tr>
+                        <td style="float:left">
+                            <h4><strong>XML file from Tharstern</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="file" name="postedFile" />
+                        </td>
+                        <td>
+                            <input type="submit" id="btn_Upload" value="Upload" aria-label="Load" />
+                        </td>
+                        <td>
+                            @Html.ValidationSummary()
+                            @TempData["errorMessage"]
+                        </td>
+                    </tr>
+                    @if (Model?.IsDach == false)
+                    {
+                        <tr>
+                            <td colspan="3">
+                                <div id="slider" style="width: 100px; margin-top: 20px;"></div>
+                                <input type="hidden" id="slider-value-input" name="sliderValue" />
+                                <p style="text-align: left; margin-top: 10px;"><span id="slider-value" style="display: inline-block;"></span></p>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+
+        <!-- ImportIntel -->
+        @if (Model?.AthenaDetails?.EndCustomer?.ToString().ToUpper() == "INTEL SECURITY")
+        {
+            <div class="grid-item">
+                @using (Html.BeginForm("ImportIntel", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <table>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>Intel Launch file</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload_Intel" value="Upload" aria-label="Load" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        }
+
+        <!-- ImportDLC -->
+        @if (Model?.AthenaDetails?.ActivationSystem?.ToString() == "DLC")
+        {
+            <div class="grid-item">
+                @using (Html.BeginForm("ImportDLC", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <table>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>Load Excel File</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload_DLC" value="Upload" aria-label="Load" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        }
+
+        <!-- ImportCR80 -->
+        @if (Model?.AthenaDetails?.ActivationSystem?.ToString() == "CR80")
+        {
+            <div class="grid-item">
+                @using (Html.BeginForm("ImportCR80", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <table>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>Load Excel File</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload_CR80" value="Upload" aria-label="Load" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        }
+
+        <!-- BLACKHAWK INDIRECT -->
+        @if (Model?.AthenaDetails?.IntegratorID?.ToUpper() == "BLACKHAWK" && Model?.AthenaDetails?.Channel?.ToUpper() == "INDIRECT" && Model.ExportAthena.BHNPONumber == null)
+        {
+            <div class="grid-item">
+                @using (Html.BeginForm("ImportBlackhawk", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <table>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>Blackawk Work Instructions</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload_Blackhawk" value="Upload" aria-label="Load" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        }
+
+        <!-- Static Information Section -->
+        <div class="grid-item info-section">
+            <table>
+                <tr>
+                    <td>
+                        <p style="float:left"><strong>Integrator:</strong></p>
+                    </td>
+                    <td>
+                        <p style="padding-left:5px">@TempData["IntegratorId"]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="float:left"><strong>Channel:</strong></p>
+                    </td>
+                    <td>
+                        <p style="padding-left:5px">@TempData["Channel"]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="float:left"><strong>PO Line:</strong></p>
+                    </td>
+                    <td>
+                        <p style="padding-left:5px">@TempData["POline"]</p>
+                    </td>
+                </tr>
+            </table>
+            <input type="button" style="float:left" value="Clear All" onclick="location.href='@Url.Action("New", "Athena")'" />
+        </div>
+    </div>
+
+
+<br />
+
+    <div class="webgrid-container">
+        @grid.GetHtml(
+            tableStyle: "webgrid-table",
+            fillEmptyRows: false,
+            headerStyle: "webgrid-header",
+            alternatingRowStyle: "webgrid-alternating-row",
+            selectedRowStyle: "select",
+            footerStyle: "grid-footer",
+            mode: WebGridPagerModes.All,
+            firstText: "<< First",
+            previousText: "< Prev",
+            nextText: "Next >",
+            lastText: "Last >>",
+            columns: new[]
+            {
+                grid.Column("Id","Id", canSort: false),
+                grid.Column("JobNumber","Job", canSort: false),
+                grid.Column("DueDate","Due Date", canSort: false, style: "noWrap"),
+                grid.Column("PurchaseOrderNumber","PO", canSort: false),
+                grid.Column("PurchaseOrderLine","Line", canSort: false),
+                grid.Column("SalesOrderNumber","SO", canSort: false),
+                grid.Column("CustomerAccountCode","Customer", canSort: false),
+                grid.Column("JobQuantity","Job Qty", canSort: false),
+                grid.Column("ASCMOrderId","ASCM Id", canSort: false),
+                grid.Column("EndCustomer","Customer", canSort: false),
+                grid.Column("ActivationSystem","Activation", canSort: false),
+                grid.Column("ProductType","Product", canSort: false),
+                grid.Column("ErpMaterialCode","ERP", canSort: false),
+                grid.Column("IntegratorPartId","Part Id", canSort: false),
+                grid.Column("ActivationType","Activation Type", canSort: false),
+                grid.Column("PartNumberSku","Sku", canSort: false, style: "noWrap"),
+                grid.Column("RetailBarcode","Retail Barcode", canSort: false),
+            })
+    </div>
+<br />
+@Html.Partial("_AthenaJob", Model)
+ }
+ else
+ {
+    <p>All items have been processed.</p>
+    <form action="@Url.Action("Download", "Athena")" method="post">
+        <input type="submit" value="Download XML" class="btn btn-primary" />
+    </form>
+    <br />
+    <form action="@Url.Action("New")" method="post">
+        <button class="btn btn-primary" type="submit">Process another job</button>
+    </form>
+ }
+
+
+<script>
+    $(document).ready(function () {
+        $('input[name="IsDach"]').change(function () {
+            if ($(this).val() === 'true') {
+                $('#dachDetails').show();
+            } else {
+                $('#dachDetails').hide();
+            }
+        });
+    });
+</script>
+
+
+<style type="text/css">
+    .noWrap {
+        width: 100px; /* Fixed width for the column */
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflow text */
+        text-overflow: ellipsis; /* Show ellipsis when text overflows */
+    }
+
+    .webgrid-table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        width: 100%;
+        display: table;
+        border-collapse: separate;
+        border: solid 1px #8a6d3b;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid #8a6d3b;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header {
+        background-color: steelblue;
+        color: #FFFFFF;
+        padding-bottom: 4px;
+        padding-top: 5px;
+        text-align: left;
+    }
+
+        .webgrid-header a {
+            color: white
+        }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: #e6e0da;
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent text from wrapping */
+        width: 100%; /* Ensure it fills the width of its container */
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+        gap: 20px; /* Space between columns */
+        align-items: start; /* Align items at the top */
+        background-color: lightblue;
+    }
+
+    .grid-item {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: left;
+    }
+
+        /* Adjust alignment for the info section */
+        .grid-item.info-section {
+            text-align: right;
+            float:right;
+        }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*using (Html.BeginForm("ImportOrder", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.IsDach)
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <table>
+                <tr>
+                <tr>
+                    <td style="float:left">
+                        <h4><strong>Load Jobs XML file from Tharstern</strong></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" name="postedFile" />
+                    </td>
+                    <td>
+                        <input type="submit" id="btn_Upload" value="Upload" aria-label="Load" />
+                    </td>
+                    <td>
+                        @Html.ValidationSummary()
+                        @TempData["errorMessage"]
+                    </td>
+                </tr>
+                <tr>
+                    @if (Model?.IsDach == false)
+                    {
+                        <td colspan="3">
+                            <div id="slider" style="width: 100px; margin-top: 20px;"></div>
+                            <input type="hidden" id="slider-value-input" name="sliderValue" />
+                            <p style="text-align: left; margin-top: 10px;"><span id="slider-value" style="display: inline-block;"></span></p>
+                        </td>
+                    }
+                </tr>
+            </table>
+        </div>
+        <div class="grid-item">
+            @if (Model?.AthenaDetails?.EndCustomer?.ToString().ToUpper() == "INTEL SECURITY")
+            {
+                using (Html.BeginForm("ImportIntel", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <table>
+                        <tr>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>Load Intel Launch file</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile1" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload_Intel" value="Upload" aria-label="Load" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                }
+            }
+            else if (Model?.AthenaDetails?.ActivationSystem?.ToString() == "DLC" || Model?.AthenaDetails?.ActivationSystem?.ToString() == "CR80")
+            {
+                using (Html.BeginForm("ImportDLC_CR80", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                    <table>
+                        <tr>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>Load Excel File</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload_DLC_CR80" value="Upload" aria-label="Load" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                    }
+            }
+        </div>
+        <div class="grid-item">
+            <table>
+                <tr>
+                    <td>
+                        <p style="float:left"><strong>Integrator:</strong></p>
+                    </td>
+                    <td>
+                        <p  style="padding-left:5px">@TempData["IntegratorId"]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="float:left"><strong>Channel:</strong></p>
+                    </td>
+                    <td>
+                        <p  style="padding-left:5px">@TempData["Channel"]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="float:left"><strong>PO Line:</strong></p>
+                    </td>
+                    <td>
+                        <p  style="padding-left:5px">@TempData["POline"]</p>
+                    </td>
+                </tr>
+            </table>
+            <input type="button" style="float:left" value="Clear All" onclick="location.href='@Url.Action("New", "Athena")'" />
+        </div>
+
+    </div>
+    }*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model SPV_Loader.Models.AthenaViewModel
+
+    @{
+        ViewBag.Title = "Index";
+        bool isProcessingCompleted = ViewBag.AllItemsProcessed ?? false;
+        WebGrid grid = new WebGrid(Model.AthenaList, canPage: false);
+    }
+
+    <h2><strong>ATHENA</strong></h2>
+
+    @if (!isProcessingCompleted)
+    {
+        using (Html.BeginForm("ImportOrder", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Upload Order File</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="file" name="postedFile" />
+                        </td>
+                        <td>
+                            <input type="submit" id="btn_Upload" value="Upload" aria-label="Load" />
+                        </td>
+                        <td>
+                            @Html.ValidationSummary()
+                            @TempData["errorMessage"]
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+
+        <br />
+        <div class="webgrid-container">
+            <table class="table-responsive">
+                <tr>
+                    <td>
+                        @grid.GetHtml(
+                        tableStyle: "webgrid-table",
+                        fillEmptyRows: false,
+                        headerStyle: "webgrid-header",
+                        alternatingRowStyle: "webgrid-alternating-row",
+                        selectedRowStyle: "select",
+                        footerStyle: "grid-footer",
+                        mode: WebGridPagerModes.All,
+                        firstText: "<< First",
+                        previousText: "< Prev",
+                        nextText: "Next >",
+                        lastText: "Last >>",
+                        columns: new[]
+                        {
+                            grid.Column("JobNumber","Job", canSort: false),
+                            grid.Column("DueDate","Due Date", canSort: false, style: "noWrap"),
+                            grid.Column("PurchaseOrderNumber","PO", canSort: false),
+                            grid.Column("PurchaseOrderLine","Line", canSort: false),
+                            grid.Column("SalesOrderNumber","SO", canSort: false),
+                            grid.Column("CustomerAccountCode","PO", canSort: false),
+                            grid.Column("JobQuantity","Job Qty", canSort: false),
+                            grid.Column("ASCMOrderId","ASCM Id", canSort: false),
+                            grid.Column("EndCustomer","Customer", canSort: false),
+                            grid.Column("ActivationSystem","Activation", canSort: false),
+                            grid.Column("ProductType","Product", canSort: false),
+                            grid.Column("ErpMaterialCode","ERP", canSort: false),
+                            grid.Column("IntegratorPartId","Part Id", canSort: false),
+                            grid.Column("ActivationType","Activation Type", canSort: false),
+                            grid.Column("PartNumberSku","Sku", canSort: false, style: "noWrap"),
+                            grid.Column("RetailBarcode","Retail Barcode", canSort: false),
+                        })
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    }
+    else
+    {
+        <p>All items have been processed.</p>
+        <form action="@Url.Action("Download", "Athena")" method="post">
+        </form>
+    }
+
+    <hr />
+    @Html.Partial("_AthenaJob", Model)*@
+
+
+

@@ -1,0 +1,1066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SpvLoaderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AsasaraActivationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ActivationType" Type="varchar(max)" />
+          <Property Name="DataTemplateName" Type="nchar" MaxLength="10" />
+          <Property Name="DataTemplatePath" Type="varchar(max)" />
+          <Property Name="PptTemplatePath" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SpvLoader.dbo.AsasaraJobs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AsasaraJobs">
+          <Key>
+            <PropertyRef Name="OrderOsLink" />
+          </Key>
+          <Property Name="OrderOsLink" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JobNumber" Type="int" />
+          <Property Name="SalesOrder" Type="int" />
+          <Property Name="BuildQty" Type="int" />
+          <Property Name="CustomerAccountCode" Type="int" />
+          <Property Name="PartNumber" Type="varchar(max)" />
+          <Property Name="OCR" Type="varchar" MaxLength="50" />
+          <Property Name="Campaign ID" Type="varchar" MaxLength="50" />
+          <Property Name="Project ID" Type="varchar" MaxLength="50" />
+          <Property Name="MMYY" Type="varchar" MaxLength="50" />
+          <Property Name="Integrator Share" Type="varchar" MaxLength="50" />
+          <Property Name="Printer Share" Type="varchar" MaxLength="50" />
+          <Property Name="Identifier" Type="varchar(max)" />
+          <Property Name="Line Description" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Integrator Product ID" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" />
+          <Property Name="In DC Date" Type="varchar" MaxLength="50" />
+          <Property Name="Production UPC" Type="varchar" MaxLength="50" />
+          <Property Name="Form Factor" Type="varchar" MaxLength="50" />
+          <Property Name="Denomination" Type="varchar" MaxLength="50" />
+          <Property Name="Partner Encoding Type" Type="varchar" MaxLength="50" />
+          <Property Name="Internal Activation" Type="varchar" MaxLength="50" />
+          <Property Name="Production Run group" Type="varchar" MaxLength="50" />
+          <Property Name="Is UPC On Card" Type="varchar" MaxLength="50" />
+          <Property Name="Is Reprint" Type="varchar" MaxLength="50" />
+          <Property Name="Google FAI Quantity" Type="int" />
+          <Property Name="Integrator FAI Quantity" Type="int" />
+          <Property Name="Test Quantity Production Data Proof" Type="int" />
+          <Property Name="Test Quantity Sandbox Dev" Type="int" />
+          <Property Name="Ship To Location Text" Type="varchar(max)" />
+          <Property Name="Ship To Location Contact" Type="varchar(max)" />
+          <Property Name="Ship To Location 1 Test Cards Text" Type="varchar(max)" />
+          <Property Name="Ship To Location 1 Test Cards Contact" Type="varchar(max)" />
+          <Property Name="Ship To Location 2 Test Cards Text" Type="varchar(max)" />
+          <Property Name="Ship To Location 2 Test Cards Contact" Type="varchar(max)" />
+          <Property Name="Cards Per Pack" Type="int" />
+          <Property Name="Packs Per Carton" Type="int" />
+          <Property Name="Cards Per Carton" Type="int" />
+          <Property Name="Pack EAN" Type="varchar" MaxLength="50" />
+          <Property Name="Pallet EAN" Type="varchar" MaxLength="50" />
+          <Property Name="Case EAN" Type="varchar" MaxLength="50" />
+          <Property Name="Spec Guide Version" Type="varchar" MaxLength="50" />
+          <Property Name="Logistics Guide Version" Type="varchar" MaxLength="50" />
+          <Property Name="NAN - Shipping PO - Product Packing Label" Type="varchar(max)" />
+          <Property Name="BHN Brand Code - BHN 1st Case Quantity - PID Number" Type="varchar(max)" />
+          <Property Name="BHN Pack Description - Packing UPC" Type="varchar(max)" />
+          <Property Name="Packaging - Encoding Identifier" Type="varchar" MaxLength="50" />
+          <Property Name="Label Spec" Type="varchar" MaxLength="50" />
+          <Property Name="Outer Box Caption" Type="varchar" MaxLength="50" />
+          <Property Name="Is Card Import File Required" Type="varchar" MaxLength="50" />
+          <Property Name="Is Send First Box To BHN" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AsasaraRegionLookup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="AsasaraWorkInstructions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Campaign_ID__rName" Type="varchar(max)" />
+          <Property Name="Integrator_Project_ID__c" Type="varchar(max)" />
+          <Property Name="Printer_Project_ID__c" Type="varchar(max)" />
+          <Property Name="MMYY__c" Type="varchar(max)" />
+          <Property Name="Integrator_SHARE__c" Type="varchar(max)" />
+          <Property Name="Printer_SHARE__c" Type="varchar(max)" />
+          <Property Name="Identifier__c" Type="varchar(max)" />
+          <Property Name="Line_Description__c" Type="varchar(max)" />
+          <Property Name="Country__c" Type="varchar(max)" />
+          <Property Name="Integrator_Product_ID__c" Type="varchar(max)" />
+          <Property Name="In_DC_Quantity__c" Type="varchar(max)" />
+          <Property Name="In_DC_Date__c" Type="varchar(max)" />
+          <Property Name="Production_UPC__c" Type="varchar(max)" />
+          <Property Name="Form_Factor__c" Type="varchar(max)" />
+          <Property Name="Denomination__c" Type="varchar(max)" />
+          <Property Name="Partner_Encoding_Type__c" Type="varchar(max)" />
+          <Property Name="Internal_Activation__c" Type="varchar(max)" />
+          <Property Name="Production_Run_Group__c" Type="varchar(max)" />
+          <Property Name="IsUpcOnCard__c" Type="varchar(max)" />
+          <Property Name="IsReprint__c" Type="varchar(max)" />
+          <Property Name="Google_FAI_Quantity__c" Type="int" />
+          <Property Name="Integrator_FAI_Quantity__c" Type="int" />
+          <Property Name="Test_Quantity_Prod_Data_Proof__c" Type="int" />
+          <Property Name="Test_Quantity_Sandbox_Dev__c" Type="int" />
+          <Property Name="Production_Quantity__c" Type="int" />
+          <Property Name="Google_Data_Production_Quantity__c" Type="int" />
+          <Property Name="Ship_to_Location_Text__c" Type="varchar(max)" />
+          <Property Name="Ship_to_Location_Contact__c" Type="varchar(max)" />
+          <Property Name="Ship_to_Location_1_Test_Cards_Text__c" Type="varchar(max)" />
+          <Property Name="Ship_to_Location_1_Test_Cards_Contact__c" Type="varchar(max)" />
+          <Property Name="Ship_to_Location_2_Test_Cards_Text__c" Type="varchar(max)" />
+          <Property Name="Ship_to_Location_2_Test_Cards_Contact__c" Type="varchar(max)" />
+          <Property Name="Cards_per_Pack__c" Type="int" />
+          <Property Name="Packs_per_Carton__c" Type="int" />
+          <Property Name="Cards_per_Carton__c" Type="int" />
+          <Property Name="Pack_EAN__c" Type="varchar" MaxLength="50" />
+          <Property Name="Pallet_EAN__c" Type="varchar" MaxLength="50" />
+          <Property Name="Case_EAN__c" Type="varchar" MaxLength="50" />
+          <Property Name="Spec_Guide_Version__c" Type="varchar" MaxLength="50" />
+          <Property Name="Logistics_Guide_Version__c" Type="varchar" MaxLength="50" />
+          <Property Name="NAN_Code__c-Shipping_PO_c-Product_Packing_Label_c" Type="varchar(max)" />
+          <Property Name="BHN_Brand_Code_c-BHN_1st_Case_Quantity_c-PID_Number_c" Type="varchar(max)" />
+          <Property Name="BHN_Pack_Description_c-Packing_UPC_c" Type="varchar(max)" />
+          <Property Name="Packaging__c-Encoding_Identifier__c" Type="varchar" MaxLength="50" />
+          <Property Name="Label_Spec__c" Type="varchar" MaxLength="50" />
+          <Property Name="Outerbox_Caption__c" Type="varchar" MaxLength="50" />
+          <Property Name="IsCardImportFileRequired__c" Type="varchar" MaxLength="50" />
+          <Property Name="IsSendFirstBoxToBHN__c" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AthenaJobs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobNumber" Type="varchar" MaxLength="50" />
+          <Property Name="DueDate" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaseOrderNumber" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaseOrderLine" Type="varchar" MaxLength="50" />
+          <Property Name="SalesOrderNumber" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerAccountCode" Type="varchar" MaxLength="50" />
+          <Property Name="JobQuantity" Type="int" />
+          <Property Name="AscmOrderId" Type="varchar" MaxLength="50" />
+          <Property Name="EndCustomer" Type="varchar" MaxLength="50" />
+          <Property Name="ActivationSystem" Type="varchar" MaxLength="50" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="ErpMaterialCode" Type="varchar" MaxLength="50" />
+          <Property Name="IntegratorPartID" Type="varchar" MaxLength="50" />
+          <Property Name="IntegratorID" Type="varchar" MaxLength="50" />
+          <Property Name="ActivationType" Type="varchar" MaxLength="50" />
+          <Property Name="PartNumberSku" Type="varchar" MaxLength="50" />
+          <Property Name="RetailBarcode" Type="varchar" MaxLength="50" />
+          <Property Name="RetailBarcodeType" Type="varchar" MaxLength="50" />
+          <Property Name="Channel" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BHNWorkInstructions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SKU" Type="varchar(max)" />
+          <Property Name="PO" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Dach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDachOrder" Type="bit" />
+        </EntityType>
+        <EntityType Name="ExportAthena">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="varchar" MaxLength="50" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaseOrderNumber" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaseOrderLine" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerAccountCode" Type="varchar" MaxLength="50" />
+          <Property Name="JobQty" Type="varchar" MaxLength="50" />
+          <Property Name="ASCMOrderID" Type="varchar" MaxLength="50" />
+          <Property Name="EndCustomer" Type="varchar" MaxLength="50" />
+          <Property Name="ActivationSystem" Type="varchar" MaxLength="50" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="ErpMaterialCode" Type="varchar" MaxLength="50" />
+          <Property Name="FAIStart" Type="varchar" MaxLength="50" />
+          <Property Name="FAIEnd" Type="varchar" MaxLength="50" />
+          <Property Name="ContractTypeLVId" Type="varchar" MaxLength="50" />
+          <Property Name="PartNumberSku" Type="varchar" MaxLength="50" />
+          <Property Name="JobComments" Type="varchar(max)" />
+          <Property Name="JobTypeLVId" Type="varchar" MaxLength="50" />
+          <Property Name="SpecificationLVId" Type="varchar" MaxLength="50" />
+          <Property Name="UPC" Type="varchar" MaxLength="50" />
+          <Property Name="ArtworkPartNumber" Type="varchar" MaxLength="50" />
+          <Property Name="PackQty" Type="varchar" MaxLength="50" />
+          <Property Name="BoxQty" Type="varchar" MaxLength="50" />
+          <Property Name="PalletQty" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="IncommRetailer" Type="varchar" MaxLength="50" />
+          <Property Name="IncommProductDescription" Type="varchar(max)" />
+          <Property Name="Denomination" Type="varchar" MaxLength="50" />
+          <Property Name="DenominationCurrency" Type="varchar" MaxLength="50" />
+          <Property Name="AlternativePartNumber" Type="varchar" MaxLength="50" />
+          <Property Name="PackagingGTIN" Type="varchar" MaxLength="50" />
+          <Property Name="BHNPONumber" Type="varchar" MaxLength="50" />
+          <Property Name="MSRequestNumber1" Type="varchar" MaxLength="50" />
+          <Property Name="BOMComment1" Type="varchar" MaxLength="50" />
+          <Property Name="PKPN1" Type="varchar" MaxLength="50" />
+          <Property Name="MSRequestNumber2" Type="varchar" MaxLength="50" />
+          <Property Name="BOMComment2" Type="varchar" MaxLength="50" />
+          <Property Name="PKPN2" Type="varchar" MaxLength="50" />
+          <Property Name="MSRequestNumber3" Type="varchar" MaxLength="50" />
+          <Property Name="BOMComment3" Type="varchar" MaxLength="50" />
+          <Property Name="PKPN3" Type="varchar" MaxLength="50" />
+          <Property Name="MSRequestNumber4" Type="varchar" MaxLength="50" />
+          <Property Name="BOMComment4" Type="varchar" MaxLength="50" />
+          <Property Name="PKPN4" Type="varchar" MaxLength="50" />
+          <Property Name="MSRequestNumber5" Type="varchar" MaxLength="50" />
+          <Property Name="BOMComment5" Type="varchar" MaxLength="50" />
+          <Property Name="PKPN5" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="JobNumber" Type="int" />
+          <Property Name="SalesOrder" Type="int" />
+          <Property Name="BuildQty" Type="int" />
+          <Property Name="CustomerAccountCode" Type="int" />
+          <Property Name="PartNumber" Type="varchar(max)" />
+          <Property Name="OCR" Type="varchar" MaxLength="50" />
+          <Property Name="OrderOsLink" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SpvLoader.dbo.Asasara_Order_WorkInstructions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Asasara_Order_WorkInstructions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="OrderOsLink" Type="varchar" MaxLength="50" />
+          <Property Name="JobNumber" Type="int" />
+          <Property Name="SalesOrder" Type="int" />
+          <Property Name="BuildQty" Type="int" />
+          <Property Name="CustomerAccountCode" Type="int" />
+          <Property Name="PartNumber" Type="varchar(max)" />
+          <Property Name="OCR" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Campaign ID" Type="varchar" MaxLength="50" />
+          <Property Name="Project ID" Type="varchar" MaxLength="50" />
+          <Property Name="MMYY" Type="varchar" MaxLength="50" />
+          <Property Name="Integrator Share" Type="varchar" MaxLength="50" />
+          <Property Name="Printer Share" Type="varchar" MaxLength="50" />
+          <Property Name="Identifier" Type="varchar(max)" />
+          <Property Name="Line Description" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Integrator Product ID" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" />
+          <Property Name="In DC Date" Type="varchar" MaxLength="50" />
+          <Property Name="Production UPC" Type="varchar" MaxLength="50" />
+          <Property Name="Form Factor" Type="varchar" MaxLength="50" />
+          <Property Name="Denomination" Type="varchar" MaxLength="50" />
+          <Property Name="Partner Encoding Type" Type="varchar" MaxLength="50" />
+          <Property Name="Internal Activation" Type="varchar" MaxLength="50" />
+          <Property Name="Production Run group" Type="varchar" MaxLength="50" />
+          <Property Name="Is UPC On Card" Type="varchar" MaxLength="50" />
+          <Property Name="Is Reprint" Type="varchar" MaxLength="50" />
+          <Property Name="Google FAI Quantity" Type="int" />
+          <Property Name="Integrator FAI Quantity" Type="int" />
+          <Property Name="Test Quantity Production Data Proof" Type="int" />
+          <Property Name="Test Quantity Sandbox Dev" Type="int" />
+          <Property Name="Ship To Location Text" Type="varchar(max)" />
+          <Property Name="Ship To Location Contact" Type="varchar(max)" />
+          <Property Name="Ship To Location 1 Test Cards Text" Type="varchar(max)" />
+          <Property Name="Ship To Location 1 Test Cards Contact" Type="varchar(max)" />
+          <Property Name="Ship To Location 2 Test Cards Text" Type="varchar(max)" />
+          <Property Name="Ship To Location 2 Test Cards Contact" Type="varchar(max)" />
+          <Property Name="Cards Per Pack" Type="int" />
+          <Property Name="Packs Per Carton" Type="int" />
+          <Property Name="Cards Per Carton" Type="int" />
+          <Property Name="Pack EAN" Type="varchar" MaxLength="50" />
+          <Property Name="Pallet EAN" Type="varchar" MaxLength="50" />
+          <Property Name="Case EAN" Type="varchar" MaxLength="50" />
+          <Property Name="Spec Guide Version" Type="varchar" MaxLength="50" />
+          <Property Name="Logistics Guide Version" Type="varchar" MaxLength="50" />
+          <Property Name="NAN - Shipping PO - Product Packing Label" Type="varchar(max)" />
+          <Property Name="BHN Brand Code - BHN 1st Case Quantity - PID Number" Type="varchar(max)" />
+          <Property Name="BHN Pack Description - Packing UPC" Type="varchar(max)" />
+          <Property Name="Packaging - Encoding Identifier" Type="varchar" MaxLength="50" />
+          <Property Name="Label Spec" Type="varchar" MaxLength="50" />
+          <Property Name="Outer Box Caption" Type="varchar" MaxLength="50" />
+          <Property Name="Is Card Import File Required" Type="varchar" MaxLength="50" />
+          <Property Name="Is Send First Box To BHN" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SpvLoaderModelStoreContainer">
+          <EntitySet Name="AsasaraActivationType" EntityType="Self.AsasaraActivationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AsasaraRegionLookup" EntityType="Self.AsasaraRegionLookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AsasaraWorkInstructions" EntityType="Self.AsasaraWorkInstructions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AthenaJobs" EntityType="Self.AthenaJobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BHNWorkInstructions" EntityType="Self.BHNWorkInstructions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dach" EntityType="Self.Dach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExportAthena" EntityType="Self.ExportAthena" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AsasaraJobs" EntityType="Self.AsasaraJobs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AsasaraJobs].[OrderOsLink] AS [OrderOsLink], 
+    [AsasaraJobs].[JobNumber] AS [JobNumber], 
+    [AsasaraJobs].[SalesOrder] AS [SalesOrder], 
+    [AsasaraJobs].[BuildQty] AS [BuildQty], 
+    [AsasaraJobs].[CustomerAccountCode] AS [CustomerAccountCode], 
+    [AsasaraJobs].[PartNumber] AS [PartNumber], 
+    [AsasaraJobs].[OCR] AS [OCR], 
+    [AsasaraJobs].[Campaign ID] AS [Campaign ID], 
+    [AsasaraJobs].[Project ID] AS [Project ID], 
+    [AsasaraJobs].[MMYY] AS [MMYY], 
+    [AsasaraJobs].[Integrator Share] AS [Integrator Share], 
+    [AsasaraJobs].[Printer Share] AS [Printer Share], 
+    [AsasaraJobs].[Identifier] AS [Identifier], 
+    [AsasaraJobs].[Line Description] AS [Line Description], 
+    [AsasaraJobs].[Country] AS [Country], 
+    [AsasaraJobs].[Integrator Product ID] AS [Integrator Product ID], 
+    [AsasaraJobs].[Quantity] AS [Quantity], 
+    [AsasaraJobs].[In DC Date] AS [In DC Date], 
+    [AsasaraJobs].[Production UPC] AS [Production UPC], 
+    [AsasaraJobs].[Form Factor] AS [Form Factor], 
+    [AsasaraJobs].[Denomination] AS [Denomination], 
+    [AsasaraJobs].[Partner Encoding Type] AS [Partner Encoding Type], 
+    [AsasaraJobs].[Internal Activation] AS [Internal Activation], 
+    [AsasaraJobs].[Production Run group] AS [Production Run group], 
+    [AsasaraJobs].[Is UPC On Card] AS [Is UPC On Card], 
+    [AsasaraJobs].[Is Reprint] AS [Is Reprint], 
+    [AsasaraJobs].[Google FAI Quantity] AS [Google FAI Quantity], 
+    [AsasaraJobs].[Integrator FAI Quantity] AS [Integrator FAI Quantity], 
+    [AsasaraJobs].[Test Quantity Production Data Proof] AS [Test Quantity Production Data Proof], 
+    [AsasaraJobs].[Test Quantity Sandbox Dev] AS [Test Quantity Sandbox Dev], 
+    [AsasaraJobs].[Ship To Location Text] AS [Ship To Location Text], 
+    [AsasaraJobs].[Ship To Location Contact] AS [Ship To Location Contact], 
+    [AsasaraJobs].[Ship To Location 1 Test Cards Text] AS [Ship To Location 1 Test Cards Text], 
+    [AsasaraJobs].[Ship To Location 1 Test Cards Contact] AS [Ship To Location 1 Test Cards Contact], 
+    [AsasaraJobs].[Ship To Location 2 Test Cards Text] AS [Ship To Location 2 Test Cards Text], 
+    [AsasaraJobs].[Ship To Location 2 Test Cards Contact] AS [Ship To Location 2 Test Cards Contact], 
+    [AsasaraJobs].[Cards Per Pack] AS [Cards Per Pack], 
+    [AsasaraJobs].[Packs Per Carton] AS [Packs Per Carton], 
+    [AsasaraJobs].[Cards Per Carton] AS [Cards Per Carton], 
+    [AsasaraJobs].[Pack EAN] AS [Pack EAN], 
+    [AsasaraJobs].[Pallet EAN] AS [Pallet EAN], 
+    [AsasaraJobs].[Case EAN] AS [Case EAN], 
+    [AsasaraJobs].[Spec Guide Version] AS [Spec Guide Version], 
+    [AsasaraJobs].[Logistics Guide Version] AS [Logistics Guide Version], 
+    [AsasaraJobs].[NAN - Shipping PO - Product Packing Label] AS [NAN - Shipping PO - Product Packing Label], 
+    [AsasaraJobs].[BHN Brand Code - BHN 1st Case Quantity - PID Number] AS [BHN Brand Code - BHN 1st Case Quantity - PID Number], 
+    [AsasaraJobs].[BHN Pack Description - Packing UPC] AS [BHN Pack Description - Packing UPC], 
+    [AsasaraJobs].[Packaging - Encoding Identifier] AS [Packaging - Encoding Identifier], 
+    [AsasaraJobs].[Label Spec] AS [Label Spec], 
+    [AsasaraJobs].[Outer Box Caption] AS [Outer Box Caption], 
+    [AsasaraJobs].[Is Card Import File Required] AS [Is Card Import File Required], 
+    [AsasaraJobs].[Is Send First Box To BHN] AS [Is Send First Box To BHN]
+    FROM [dbo].[AsasaraJobs] AS [AsasaraJobs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Asasara_Order_WorkInstructions" EntityType="Self.Asasara_Order_WorkInstructions" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Asasara_Order_WorkInstructions].[OrderOsLink] AS [OrderOsLink], 
+    [Asasara_Order_WorkInstructions].[JobNumber] AS [JobNumber], 
+    [Asasara_Order_WorkInstructions].[SalesOrder] AS [SalesOrder], 
+    [Asasara_Order_WorkInstructions].[BuildQty] AS [BuildQty], 
+    [Asasara_Order_WorkInstructions].[CustomerAccountCode] AS [CustomerAccountCode], 
+    [Asasara_Order_WorkInstructions].[PartNumber] AS [PartNumber], 
+    [Asasara_Order_WorkInstructions].[OCR] AS [OCR], 
+    [Asasara_Order_WorkInstructions].[ID] AS [ID], 
+    [Asasara_Order_WorkInstructions].[Campaign ID] AS [Campaign ID], 
+    [Asasara_Order_WorkInstructions].[Project ID] AS [Project ID], 
+    [Asasara_Order_WorkInstructions].[MMYY] AS [MMYY], 
+    [Asasara_Order_WorkInstructions].[Integrator Share] AS [Integrator Share], 
+    [Asasara_Order_WorkInstructions].[Printer Share] AS [Printer Share], 
+    [Asasara_Order_WorkInstructions].[Identifier] AS [Identifier], 
+    [Asasara_Order_WorkInstructions].[Line Description] AS [Line Description], 
+    [Asasara_Order_WorkInstructions].[Country] AS [Country], 
+    [Asasara_Order_WorkInstructions].[Integrator Product ID] AS [Integrator Product ID], 
+    [Asasara_Order_WorkInstructions].[Quantity] AS [Quantity], 
+    [Asasara_Order_WorkInstructions].[In DC Date] AS [In DC Date], 
+    [Asasara_Order_WorkInstructions].[Production UPC] AS [Production UPC], 
+    [Asasara_Order_WorkInstructions].[Form Factor] AS [Form Factor], 
+    [Asasara_Order_WorkInstructions].[Denomination] AS [Denomination], 
+    [Asasara_Order_WorkInstructions].[Partner Encoding Type] AS [Partner Encoding Type], 
+    [Asasara_Order_WorkInstructions].[Internal Activation] AS [Internal Activation], 
+    [Asasara_Order_WorkInstructions].[Production Run group] AS [Production Run group], 
+    [Asasara_Order_WorkInstructions].[Is UPC On Card] AS [Is UPC On Card], 
+    [Asasara_Order_WorkInstructions].[Is Reprint] AS [Is Reprint], 
+    [Asasara_Order_WorkInstructions].[Google FAI Quantity] AS [Google FAI Quantity], 
+    [Asasara_Order_WorkInstructions].[Integrator FAI Quantity] AS [Integrator FAI Quantity], 
+    [Asasara_Order_WorkInstructions].[Test Quantity Production Data Proof] AS [Test Quantity Production Data Proof], 
+    [Asasara_Order_WorkInstructions].[Test Quantity Sandbox Dev] AS [Test Quantity Sandbox Dev], 
+    [Asasara_Order_WorkInstructions].[Ship To Location Text] AS [Ship To Location Text], 
+    [Asasara_Order_WorkInstructions].[Ship To Location Contact] AS [Ship To Location Contact], 
+    [Asasara_Order_WorkInstructions].[Ship To Location 1 Test Cards Text] AS [Ship To Location 1 Test Cards Text], 
+    [Asasara_Order_WorkInstructions].[Ship To Location 1 Test Cards Contact] AS [Ship To Location 1 Test Cards Contact], 
+    [Asasara_Order_WorkInstructions].[Ship To Location 2 Test Cards Text] AS [Ship To Location 2 Test Cards Text], 
+    [Asasara_Order_WorkInstructions].[Ship To Location 2 Test Cards Contact] AS [Ship To Location 2 Test Cards Contact], 
+    [Asasara_Order_WorkInstructions].[Cards Per Pack] AS [Cards Per Pack], 
+    [Asasara_Order_WorkInstructions].[Packs Per Carton] AS [Packs Per Carton], 
+    [Asasara_Order_WorkInstructions].[Cards Per Carton] AS [Cards Per Carton], 
+    [Asasara_Order_WorkInstructions].[Pack EAN] AS [Pack EAN], 
+    [Asasara_Order_WorkInstructions].[Pallet EAN] AS [Pallet EAN], 
+    [Asasara_Order_WorkInstructions].[Case EAN] AS [Case EAN], 
+    [Asasara_Order_WorkInstructions].[Spec Guide Version] AS [Spec Guide Version], 
+    [Asasara_Order_WorkInstructions].[Logistics Guide Version] AS [Logistics Guide Version], 
+    [Asasara_Order_WorkInstructions].[NAN - Shipping PO - Product Packing Label] AS [NAN - Shipping PO - Product Packing Label], 
+    [Asasara_Order_WorkInstructions].[BHN Brand Code - BHN 1st Case Quantity - PID Number] AS [BHN Brand Code - BHN 1st Case Quantity - PID Number], 
+    [Asasara_Order_WorkInstructions].[BHN Pack Description - Packing UPC] AS [BHN Pack Description - Packing UPC], 
+    [Asasara_Order_WorkInstructions].[Packaging - Encoding Identifier] AS [Packaging - Encoding Identifier], 
+    [Asasara_Order_WorkInstructions].[Label Spec] AS [Label Spec], 
+    [Asasara_Order_WorkInstructions].[Outer Box Caption] AS [Outer Box Caption], 
+    [Asasara_Order_WorkInstructions].[Is Card Import File Required] AS [Is Card Import File Required], 
+    [Asasara_Order_WorkInstructions].[Is Send First Box To BHN] AS [Is Send First Box To BHN]
+    FROM [dbo].[Asasara_Order_WorkInstructions] AS [Asasara_Order_WorkInstructions]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SpvLoaderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AsasaraActivationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ActivationType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataTemplateName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DataTemplatePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PptTemplatePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AsasaraRegionLookup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AsasaraWorkInstruction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Campaign_ID__rName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_Project_ID__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Printer_Project_ID__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MMYY__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_SHARE__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Printer_SHARE__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Identifier__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Line_Description__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Country__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_Product_ID__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="In_DC_Quantity__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="In_DC_Date__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Production_UPC__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Form_Factor__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Denomination__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Partner_Encoding_Type__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Internal_Activation__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Production_Run_Group__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsUpcOnCard__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsReprint__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Google_FAI_Quantity__c" Type="Int32" />
+          <Property Name="Integrator_FAI_Quantity__c" Type="Int32" />
+          <Property Name="Test_Quantity_Prod_Data_Proof__c" Type="Int32" />
+          <Property Name="Test_Quantity_Sandbox_Dev__c" Type="Int32" />
+          <Property Name="Production_Quantity__c" Type="Int32" />
+          <Property Name="Google_Data_Production_Quantity__c" Type="Int32" />
+          <Property Name="Ship_to_Location_Text__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_to_Location_Contact__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_to_Location_1_Test_Cards_Text__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_to_Location_1_Test_Cards_Contact__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_to_Location_2_Test_Cards_Text__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_to_Location_2_Test_Cards_Contact__c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cards_per_Pack__c" Type="Int32" />
+          <Property Name="Packs_per_Carton__c" Type="Int32" />
+          <Property Name="Cards_per_Carton__c" Type="Int32" />
+          <Property Name="Pack_EAN__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pallet_EAN__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Case_EAN__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec_Guide_Version__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Logistics_Guide_Version__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAN_Code__c_Shipping_PO_c_Product_Packing_Label_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BHN_Brand_Code_c_BHN_1st_Case_Quantity_c_PID_Number_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BHN_Pack_Description_c_Packing_UPC_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Packaging__c_Encoding_Identifier__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Label_Spec__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Outerbox_Caption__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsCardImportFileRequired__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSendFirstBoxToBHN__c" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AthenaJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="JobNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAccountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobQuantity" Type="Int32" />
+          <Property Name="AscmOrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EndCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActivationSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ErpMaterialCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IntegratorPartID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IntegratorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActivationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartNumberSku" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RetailBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RetailBarcodeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BHNWorkInstruction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="JobNumber" Type="Int32" />
+          <Property Name="SalesOrder" Type="Int32" />
+          <Property Name="BuildQty" Type="Int32" />
+          <Property Name="CustomerAccountCode" Type="Int32" />
+          <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderOsLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AsasaraJob">
+          <Key>
+            <PropertyRef Name="OrderOsLink" />
+          </Key>
+          <Property Name="OrderOsLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JobNumber" Type="Int32" />
+          <Property Name="SalesOrder" Type="Int32" />
+          <Property Name="BuildQty" Type="Int32" />
+          <Property Name="CustomerAccountCode" Type="Int32" />
+          <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Campaign_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MMYY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Printer_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Line_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_Product_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="In_DC_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Production_UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Form_Factor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Partner_Encoding_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Internal_Activation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Production_Run_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_UPC_On_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Reprint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Google_FAI_Quantity" Type="Int32" />
+          <Property Name="Integrator_FAI_Quantity" Type="Int32" />
+          <Property Name="Test_Quantity_Production_Data_Proof" Type="Int32" />
+          <Property Name="Test_Quantity_Sandbox_Dev" Type="Int32" />
+          <Property Name="Ship_To_Location_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_1_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_1_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_2_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_2_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cards_Per_Pack" Type="Int32" />
+          <Property Name="Packs_Per_Carton" Type="Int32" />
+          <Property Name="Cards_Per_Carton" Type="Int32" />
+          <Property Name="Pack_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pallet_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Case_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Logistics_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAN___Shipping_PO___Product_Packing_Label" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BHN_Pack_Description___Packing_UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Packaging___Encoding_Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Label_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Outer_Box_Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Card_Import_File_Required" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Send_First_Box_To_BHN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SpvLoaderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AsasaraActivationTypes" EntityType="Self.AsasaraActivationType" />
+          <EntitySet Name="AsasaraRegionLookups" EntityType="Self.AsasaraRegionLookup" />
+          <EntitySet Name="AsasaraWorkInstructions" EntityType="Self.AsasaraWorkInstruction" />
+          <EntitySet Name="AthenaJobs" EntityType="Self.AthenaJob" />
+          <EntitySet Name="BHNWorkInstructions" EntityType="Self.BHNWorkInstruction" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="AsasaraJobs" EntityType="Self.AsasaraJob" />
+          <EntitySet Name="Asasara_Order_WorkInstructions" EntityType="SpvLoaderModel.Asasara_Order_WorkInstructions" />
+          <EntitySet Name="ExportAthenas" EntityType="SpvLoaderModel.ExportAthena" />
+          <EntitySet Name="Daches" EntityType="SpvLoaderModel.Dach" />
+        </EntityContainer>
+        <EntityType Name="Asasara_Order_WorkInstructions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="OrderOsLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobNumber" Type="Int32" />
+          <Property Name="SalesOrder" Type="Int32" />
+          <Property Name="BuildQty" Type="Int32" />
+          <Property Name="CustomerAccountCode" Type="Int32" />
+          <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Campaign_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MMYY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Printer_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Line_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Integrator_Product_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="In_DC_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Production_UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Form_Factor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Partner_Encoding_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Internal_Activation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Production_Run_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_UPC_On_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Reprint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Google_FAI_Quantity" Type="Int32" />
+          <Property Name="Integrator_FAI_Quantity" Type="Int32" />
+          <Property Name="Test_Quantity_Production_Data_Proof" Type="Int32" />
+          <Property Name="Test_Quantity_Sandbox_Dev" Type="Int32" />
+          <Property Name="Ship_To_Location_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_1_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_1_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_2_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Location_2_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cards_Per_Pack" Type="Int32" />
+          <Property Name="Packs_Per_Carton" Type="Int32" />
+          <Property Name="Cards_Per_Carton" Type="Int32" />
+          <Property Name="Pack_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pallet_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Case_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Logistics_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAN___Shipping_PO___Product_Packing_Label" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BHN_Pack_Description___Packing_UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Packaging___Encoding_Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Label_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Outer_Box_Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Card_Import_File_Required" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Send_First_Box_To_BHN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ExportAthena">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAccountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ASCMOrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EndCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActivationSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ErpMaterialCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FAIStart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FAIEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractTypeLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartNumberSku" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="JobTypeLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecificationLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArtworkPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BoxQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PalletQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IncommRetailer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IncommProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DenominationCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AlternativePartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackagingGTIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BHNPONumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSRequestNumber1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOMComment1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PKPN1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSRequestNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOMComment2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PKPN2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSRequestNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOMComment3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PKPN3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSRequestNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOMComment4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PKPN4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSRequestNumber5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOMComment5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PKPN5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Dach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDachOrder" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SpvLoaderModelStoreContainer" CdmEntityContainer="SpvLoaderEntities">
+          <EntitySetMapping Name="AsasaraActivationTypes">
+            <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraActivationType">
+              <MappingFragment StoreEntitySet="AsasaraActivationType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivationType" ColumnName="ActivationType" />
+                <ScalarProperty Name="DataTemplateName" ColumnName="DataTemplateName" />
+                <ScalarProperty Name="DataTemplatePath" ColumnName="DataTemplatePath" />
+                <ScalarProperty Name="PptTemplatePath" ColumnName="PptTemplatePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsasaraRegionLookups">
+            <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraRegionLookup">
+              <MappingFragment StoreEntitySet="AsasaraRegionLookup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsasaraWorkInstructions">
+            <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraWorkInstruction">
+              <MappingFragment StoreEntitySet="AsasaraWorkInstructions">
+                <ScalarProperty Name="Campaign_ID__rName" ColumnName="Campaign_ID__rName" />
+                <ScalarProperty Name="Integrator_Project_ID__c" ColumnName="Integrator_Project_ID__c" />
+                <ScalarProperty Name="Printer_Project_ID__c" ColumnName="Printer_Project_ID__c" />
+                <ScalarProperty Name="MMYY__c" ColumnName="MMYY__c" />
+                <ScalarProperty Name="Integrator_SHARE__c" ColumnName="Integrator_SHARE__c" />
+                <ScalarProperty Name="Printer_SHARE__c" ColumnName="Printer_SHARE__c" />
+                <ScalarProperty Name="Identifier__c" ColumnName="Identifier__c" />
+                <ScalarProperty Name="Line_Description__c" ColumnName="Line_Description__c" />
+                <ScalarProperty Name="Country__c" ColumnName="Country__c" />
+                <ScalarProperty Name="Integrator_Product_ID__c" ColumnName="Integrator_Product_ID__c" />
+                <ScalarProperty Name="In_DC_Quantity__c" ColumnName="In_DC_Quantity__c" />
+                <ScalarProperty Name="In_DC_Date__c" ColumnName="In_DC_Date__c" />
+                <ScalarProperty Name="Production_UPC__c" ColumnName="Production_UPC__c" />
+                <ScalarProperty Name="Form_Factor__c" ColumnName="Form_Factor__c" />
+                <ScalarProperty Name="Denomination__c" ColumnName="Denomination__c" />
+                <ScalarProperty Name="Partner_Encoding_Type__c" ColumnName="Partner_Encoding_Type__c" />
+                <ScalarProperty Name="Internal_Activation__c" ColumnName="Internal_Activation__c" />
+                <ScalarProperty Name="Production_Run_Group__c" ColumnName="Production_Run_Group__c" />
+                <ScalarProperty Name="IsUpcOnCard__c" ColumnName="IsUpcOnCard__c" />
+                <ScalarProperty Name="IsReprint__c" ColumnName="IsReprint__c" />
+                <ScalarProperty Name="Google_FAI_Quantity__c" ColumnName="Google_FAI_Quantity__c" />
+                <ScalarProperty Name="Integrator_FAI_Quantity__c" ColumnName="Integrator_FAI_Quantity__c" />
+                <ScalarProperty Name="Test_Quantity_Prod_Data_Proof__c" ColumnName="Test_Quantity_Prod_Data_Proof__c" />
+                <ScalarProperty Name="Test_Quantity_Sandbox_Dev__c" ColumnName="Test_Quantity_Sandbox_Dev__c" />
+                <ScalarProperty Name="Production_Quantity__c" ColumnName="Production_Quantity__c" />
+                <ScalarProperty Name="Google_Data_Production_Quantity__c" ColumnName="Google_Data_Production_Quantity__c" />
+                <ScalarProperty Name="Ship_to_Location_Text__c" ColumnName="Ship_to_Location_Text__c" />
+                <ScalarProperty Name="Ship_to_Location_Contact__c" ColumnName="Ship_to_Location_Contact__c" />
+                <ScalarProperty Name="Ship_to_Location_1_Test_Cards_Text__c" ColumnName="Ship_to_Location_1_Test_Cards_Text__c" />
+                <ScalarProperty Name="Ship_to_Location_1_Test_Cards_Contact__c" ColumnName="Ship_to_Location_1_Test_Cards_Contact__c" />
+                <ScalarProperty Name="Ship_to_Location_2_Test_Cards_Text__c" ColumnName="Ship_to_Location_2_Test_Cards_Text__c" />
+                <ScalarProperty Name="Ship_to_Location_2_Test_Cards_Contact__c" ColumnName="Ship_to_Location_2_Test_Cards_Contact__c" />
+                <ScalarProperty Name="Cards_per_Pack__c" ColumnName="Cards_per_Pack__c" />
+                <ScalarProperty Name="Packs_per_Carton__c" ColumnName="Packs_per_Carton__c" />
+                <ScalarProperty Name="Cards_per_Carton__c" ColumnName="Cards_per_Carton__c" />
+                <ScalarProperty Name="Pack_EAN__c" ColumnName="Pack_EAN__c" />
+                <ScalarProperty Name="Pallet_EAN__c" ColumnName="Pallet_EAN__c" />
+                <ScalarProperty Name="Case_EAN__c" ColumnName="Case_EAN__c" />
+                <ScalarProperty Name="Spec_Guide_Version__c" ColumnName="Spec_Guide_Version__c" />
+                <ScalarProperty Name="Logistics_Guide_Version__c" ColumnName="Logistics_Guide_Version__c" />
+                <ScalarProperty Name="NAN_Code__c_Shipping_PO_c_Product_Packing_Label_c" ColumnName="NAN_Code__c-Shipping_PO_c-Product_Packing_Label_c" />
+                <ScalarProperty Name="BHN_Brand_Code_c_BHN_1st_Case_Quantity_c_PID_Number_c" ColumnName="BHN_Brand_Code_c-BHN_1st_Case_Quantity_c-PID_Number_c" />
+                <ScalarProperty Name="BHN_Pack_Description_c_Packing_UPC_c" ColumnName="BHN_Pack_Description_c-Packing_UPC_c" />
+                <ScalarProperty Name="Packaging__c_Encoding_Identifier__c" ColumnName="Packaging__c-Encoding_Identifier__c" />
+                <ScalarProperty Name="Label_Spec__c" ColumnName="Label_Spec__c" />
+                <ScalarProperty Name="Outerbox_Caption__c" ColumnName="Outerbox_Caption__c" />
+                <ScalarProperty Name="IsCardImportFileRequired__c" ColumnName="IsCardImportFileRequired__c" />
+                <ScalarProperty Name="IsSendFirstBoxToBHN__c" ColumnName="IsSendFirstBoxToBHN__c" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AthenaJobs">
+            <EntityTypeMapping TypeName="SpvLoaderModel.AthenaJob">
+              <MappingFragment StoreEntitySet="AthenaJobs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+                <ScalarProperty Name="PurchaseOrderLine" ColumnName="PurchaseOrderLine" />
+                <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+                <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+                <ScalarProperty Name="JobQuantity" ColumnName="JobQuantity" />
+                <ScalarProperty Name="AscmOrderId" ColumnName="AscmOrderId" />
+                <ScalarProperty Name="EndCustomer" ColumnName="EndCustomer" />
+                <ScalarProperty Name="ActivationSystem" ColumnName="ActivationSystem" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ErpMaterialCode" ColumnName="ErpMaterialCode" />
+                <ScalarProperty Name="IntegratorPartID" ColumnName="IntegratorPartID" />
+                <ScalarProperty Name="IntegratorID" ColumnName="IntegratorID" />
+                <ScalarProperty Name="ActivationType" ColumnName="ActivationType" />
+                <ScalarProperty Name="PartNumberSku" ColumnName="PartNumberSku" />
+                <ScalarProperty Name="RetailBarcode" ColumnName="RetailBarcode" />
+                <ScalarProperty Name="RetailBarcodeType" ColumnName="RetailBarcodeType" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BHNWorkInstructions">
+            <EntityTypeMapping TypeName="SpvLoaderModel.BHNWorkInstruction">
+              <MappingFragment StoreEntitySet="BHNWorkInstructions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="PO" ColumnName="PO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="SpvLoaderModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
+                <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
+                <ScalarProperty Name="BuildQty" ColumnName="BuildQty" />
+                <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="OCR" ColumnName="OCR" />
+                <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsasaraJobs">
+            <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraJob">
+              <MappingFragment StoreEntitySet="AsasaraJobs">
+                <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
+                <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
+                <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
+                <ScalarProperty Name="BuildQty" ColumnName="BuildQty" />
+                <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="OCR" ColumnName="OCR" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign ID" />
+                <ScalarProperty Name="Project_ID" ColumnName="Project ID" />
+                <ScalarProperty Name="MMYY" ColumnName="MMYY" />
+                <ScalarProperty Name="Integrator_Share" ColumnName="Integrator Share" />
+                <ScalarProperty Name="Printer_Share" ColumnName="Printer Share" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="Line_Description" ColumnName="Line Description" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Integrator_Product_ID" ColumnName="Integrator Product ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="In_DC_Date" ColumnName="In DC Date" />
+                <ScalarProperty Name="Production_UPC" ColumnName="Production UPC" />
+                <ScalarProperty Name="Form_Factor" ColumnName="Form Factor" />
+                <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+                <ScalarProperty Name="Partner_Encoding_Type" ColumnName="Partner Encoding Type" />
+                <ScalarProperty Name="Internal_Activation" ColumnName="Internal Activation" />
+                <ScalarProperty Name="Production_Run_group" ColumnName="Production Run group" />
+                <ScalarProperty Name="Is_UPC_On_Card" ColumnName="Is UPC On Card" />
+                <ScalarProperty Name="Is_Reprint" ColumnName="Is Reprint" />
+                <ScalarProperty Name="Google_FAI_Quantity" ColumnName="Google FAI Quantity" />
+                <ScalarProperty Name="Integrator_FAI_Quantity" ColumnName="Integrator FAI Quantity" />
+                <ScalarProperty Name="Test_Quantity_Production_Data_Proof" ColumnName="Test Quantity Production Data Proof" />
+                <ScalarProperty Name="Test_Quantity_Sandbox_Dev" ColumnName="Test Quantity Sandbox Dev" />
+                <ScalarProperty Name="Ship_To_Location_Text" ColumnName="Ship To Location Text" />
+                <ScalarProperty Name="Ship_To_Location_Contact" ColumnName="Ship To Location Contact" />
+                <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Text" ColumnName="Ship To Location 1 Test Cards Text" />
+                <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Contact" ColumnName="Ship To Location 1 Test Cards Contact" />
+                <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Text" ColumnName="Ship To Location 2 Test Cards Text" />
+                <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Contact" ColumnName="Ship To Location 2 Test Cards Contact" />
+                <ScalarProperty Name="Cards_Per_Pack" ColumnName="Cards Per Pack" />
+                <ScalarProperty Name="Packs_Per_Carton" ColumnName="Packs Per Carton" />
+                <ScalarProperty Name="Cards_Per_Carton" ColumnName="Cards Per Carton" />
+                <ScalarProperty Name="Pack_EAN" ColumnName="Pack EAN" />
+                <ScalarProperty Name="Pallet_EAN" ColumnName="Pallet EAN" />
+                <ScalarProperty Name="Case_EAN" ColumnName="Case EAN" />
+                <ScalarProperty Name="Spec_Guide_Version" ColumnName="Spec Guide Version" />
+                <ScalarProperty Name="Logistics_Guide_Version" ColumnName="Logistics Guide Version" />
+                <ScalarProperty Name="NAN___Shipping_PO___Product_Packing_Label" ColumnName="NAN - Shipping PO - Product Packing Label" />
+                <ScalarProperty Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" ColumnName="BHN Brand Code - BHN 1st Case Quantity - PID Number" />
+                <ScalarProperty Name="BHN_Pack_Description___Packing_UPC" ColumnName="BHN Pack Description - Packing UPC" />
+                <ScalarProperty Name="Packaging___Encoding_Identifier" ColumnName="Packaging - Encoding Identifier" />
+                <ScalarProperty Name="Label_Spec" ColumnName="Label Spec" />
+                <ScalarProperty Name="Outer_Box_Caption" ColumnName="Outer Box Caption" />
+                <ScalarProperty Name="Is_Card_Import_File_Required" ColumnName="Is Card Import File Required" />
+                <ScalarProperty Name="Is_Send_First_Box_To_BHN" ColumnName="Is Send First Box To BHN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asasara_Order_WorkInstructions">
+            <EntityTypeMapping TypeName="SpvLoaderModel.Asasara_Order_WorkInstructions">
+              <MappingFragment StoreEntitySet="Asasara_Order_WorkInstructions">
+                <ScalarProperty Name="Is_Send_First_Box_To_BHN" ColumnName="Is Send First Box To BHN" />
+                <ScalarProperty Name="Is_Card_Import_File_Required" ColumnName="Is Card Import File Required" />
+                <ScalarProperty Name="Outer_Box_Caption" ColumnName="Outer Box Caption" />
+                <ScalarProperty Name="Label_Spec" ColumnName="Label Spec" />
+                <ScalarProperty Name="Packaging___Encoding_Identifier" ColumnName="Packaging - Encoding Identifier" />
+                <ScalarProperty Name="BHN_Pack_Description___Packing_UPC" ColumnName="BHN Pack Description - Packing UPC" />
+                <ScalarProperty Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" ColumnName="BHN Brand Code - BHN 1st Case Quantity - PID Number" />
+                <ScalarProperty Name="NAN___Shipping_PO___Product_Packing_Label" ColumnName="NAN - Shipping PO - Product Packing Label" />
+                <ScalarProperty Name="Logistics_Guide_Version" ColumnName="Logistics Guide Version" />
+                <ScalarProperty Name="Spec_Guide_Version" ColumnName="Spec Guide Version" />
+                <ScalarProperty Name="Case_EAN" ColumnName="Case EAN" />
+                <ScalarProperty Name="Pallet_EAN" ColumnName="Pallet EAN" />
+                <ScalarProperty Name="Pack_EAN" ColumnName="Pack EAN" />
+                <ScalarProperty Name="Cards_Per_Carton" ColumnName="Cards Per Carton" />
+                <ScalarProperty Name="Packs_Per_Carton" ColumnName="Packs Per Carton" />
+                <ScalarProperty Name="Cards_Per_Pack" ColumnName="Cards Per Pack" />
+                <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Contact" ColumnName="Ship To Location 2 Test Cards Contact" />
+                <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Text" ColumnName="Ship To Location 2 Test Cards Text" />
+                <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Contact" ColumnName="Ship To Location 1 Test Cards Contact" />
+                <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Text" ColumnName="Ship To Location 1 Test Cards Text" />
+                <ScalarProperty Name="Ship_To_Location_Contact" ColumnName="Ship To Location Contact" />
+                <ScalarProperty Name="Ship_To_Location_Text" ColumnName="Ship To Location Text" />
+                <ScalarProperty Name="Test_Quantity_Sandbox_Dev" ColumnName="Test Quantity Sandbox Dev" />
+                <ScalarProperty Name="Test_Quantity_Production_Data_Proof" ColumnName="Test Quantity Production Data Proof" />
+                <ScalarProperty Name="Integrator_FAI_Quantity" ColumnName="Integrator FAI Quantity" />
+                <ScalarProperty Name="Google_FAI_Quantity" ColumnName="Google FAI Quantity" />
+                <ScalarProperty Name="Is_Reprint" ColumnName="Is Reprint" />
+                <ScalarProperty Name="Is_UPC_On_Card" ColumnName="Is UPC On Card" />
+                <ScalarProperty Name="Production_Run_group" ColumnName="Production Run group" />
+                <ScalarProperty Name="Internal_Activation" ColumnName="Internal Activation" />
+                <ScalarProperty Name="Partner_Encoding_Type" ColumnName="Partner Encoding Type" />
+                <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+                <ScalarProperty Name="Form_Factor" ColumnName="Form Factor" />
+                <ScalarProperty Name="Production_UPC" ColumnName="Production UPC" />
+                <ScalarProperty Name="In_DC_Date" ColumnName="In DC Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Integrator_Product_ID" ColumnName="Integrator Product ID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Line_Description" ColumnName="Line Description" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="Printer_Share" ColumnName="Printer Share" />
+                <ScalarProperty Name="Integrator_Share" ColumnName="Integrator Share" />
+                <ScalarProperty Name="MMYY" ColumnName="MMYY" />
+                <ScalarProperty Name="Project_ID" ColumnName="Project ID" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OCR" ColumnName="OCR" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+                <ScalarProperty Name="BuildQty" ColumnName="BuildQty" />
+                <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
+                <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
+                <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExportAthenas">
+            <EntityTypeMapping TypeName="SpvLoaderModel.ExportAthena">
+              <MappingFragment StoreEntitySet="ExportAthena">
+                <ScalarProperty Name="PKPN5" ColumnName="PKPN5" />
+                <ScalarProperty Name="BOMComment5" ColumnName="BOMComment5" />
+                <ScalarProperty Name="MSRequestNumber5" ColumnName="MSRequestNumber5" />
+                <ScalarProperty Name="PKPN4" ColumnName="PKPN4" />
+                <ScalarProperty Name="BOMComment4" ColumnName="BOMComment4" />
+                <ScalarProperty Name="MSRequestNumber4" ColumnName="MSRequestNumber4" />
+                <ScalarProperty Name="PKPN3" ColumnName="PKPN3" />
+                <ScalarProperty Name="BOMComment3" ColumnName="BOMComment3" />
+                <ScalarProperty Name="MSRequestNumber3" ColumnName="MSRequestNumber3" />
+                <ScalarProperty Name="PKPN2" ColumnName="PKPN2" />
+                <ScalarProperty Name="BOMComment2" ColumnName="BOMComment2" />
+                <ScalarProperty Name="MSRequestNumber2" ColumnName="MSRequestNumber2" />
+                <ScalarProperty Name="PKPN1" ColumnName="PKPN1" />
+                <ScalarProperty Name="BOMComment1" ColumnName="BOMComment1" />
+                <ScalarProperty Name="MSRequestNumber1" ColumnName="MSRequestNumber1" />
+                <ScalarProperty Name="BHNPONumber" ColumnName="BHNPONumber" />
+                <ScalarProperty Name="PackagingGTIN" ColumnName="PackagingGTIN" />
+                <ScalarProperty Name="AlternativePartNumber" ColumnName="AlternativePartNumber" />
+                <ScalarProperty Name="DenominationCurrency" ColumnName="DenominationCurrency" />
+                <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+                <ScalarProperty Name="IncommProductDescription" ColumnName="IncommProductDescription" />
+                <ScalarProperty Name="IncommRetailer" ColumnName="IncommRetailer" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PalletQty" ColumnName="PalletQty" />
+                <ScalarProperty Name="BoxQty" ColumnName="BoxQty" />
+                <ScalarProperty Name="PackQty" ColumnName="PackQty" />
+                <ScalarProperty Name="ArtworkPartNumber" ColumnName="ArtworkPartNumber" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="SpecificationLVId" ColumnName="SpecificationLVId" />
+                <ScalarProperty Name="JobTypeLVId" ColumnName="JobTypeLVId" />
+                <ScalarProperty Name="JobComments" ColumnName="JobComments" />
+                <ScalarProperty Name="PartNumberSku" ColumnName="PartNumberSku" />
+                <ScalarProperty Name="ContractTypeLVId" ColumnName="ContractTypeLVId" />
+                <ScalarProperty Name="FAIEnd" ColumnName="FAIEnd" />
+                <ScalarProperty Name="FAIStart" ColumnName="FAIStart" />
+                <ScalarProperty Name="ErpMaterialCode" ColumnName="ErpMaterialCode" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ActivationSystem" ColumnName="ActivationSystem" />
+                <ScalarProperty Name="EndCustomer" ColumnName="EndCustomer" />
+                <ScalarProperty Name="ASCMOrderID" ColumnName="ASCMOrderID" />
+                <ScalarProperty Name="JobQty" ColumnName="JobQty" />
+                <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+                <ScalarProperty Name="PurchaseOrderLine" ColumnName="PurchaseOrderLine" />
+                <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Daches">
+            <EntityTypeMapping TypeName="SpvLoaderModel.Dach">
+              <MappingFragment StoreEntitySet="Dach">
+                <ScalarProperty Name="IsDachOrder" ColumnName="IsDachOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

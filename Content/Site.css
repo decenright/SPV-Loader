@@ -1,0 +1,97 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+
+
+
+.headerImg {
+    padding-right: 10px;
+    padding-top: 5px;
+    height: 40px;
+}
+
+.footerImg {
+    padding-right: 10px;
+    padding-top: 5px;
+    height: 80px;
+}
+
+.department {
+    color: white;
+    font-size: 30px;
+}
+
+.webgrid-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%; /* Ensure it fills the width of its container */
+}
+
+
+
+
+
+comments {
+    width: 5000px;
+}
+
+.webgrid-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border: solid 1px #8a6d3b;
+    background-color: white;
+}
+
+    .webgrid-table td, th {
+        border: 1px solid #8a6d3b;
+        padding: 3px 7px 2px;
+    }
+
+.webgrid-header {
+    background-color: steelblue;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+    .webgrid-header a {
+        color: white
+    }
+
+.webgrid-row-style {
+    padding: 3px 7px 2px;
+}
+
+.webgrid-alternating-row {
+    background-color: #e6e0da;
+    padding: 3px 7px 2px;
+}
+

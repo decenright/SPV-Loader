@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CrystalReport xmlns="urn:crystal-reports:schemas:report-detail"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:crystal-reports:schemas:report-detail http://www.businessobjects.com/products/xml/CR2008Schema.xsd">
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="JobNumber" FieldName="{MainJobDetails.JobNo}"><FormattedValue>148773</FormattedValue><Value>148773</Value></Field>
+<Field Name="DueDate" FieldName="{MainJobDetails.RequiredTime}"><FormattedValue>27/06/2019  00:00:00</FormattedValue><Value>2019-06-27T00:00:00</Value></Field>
+<Field Name="PurchaseOrder" FieldName="{MainOrder.CustomerRef}"><FormattedValue>7000142332</FormattedValue><Value>7000142332</Value></Field>
+<Field Name="PurchaseOrderLine" FieldName="{@POLineNumber}"><FormattedValue>10</FormattedValue><Value>10</Value></Field>
+<Field Name="SalesOrder" FieldName="{MainOrder.OrderNo}"><FormattedValue>163423</FormattedValue><Value>163423</Value></Field>
+<Field Name="CustomerAccountCode" FieldName="{MainOrder.InvoiceCode}"><FormattedValue>2014</FormattedValue><Value>2014</Value></Field>
+<Field Name="BuildQty" FieldName="{@Build Qty}"><FormattedValue>540</FormattedValue><Value>540.00</Value></Field>
+<Field Name="ASCMOrderID" FieldName="{@OrderID}"><FormattedValue>0</FormattedValue><Value>0</Value></Field>
+<Field Name="EndCustomer" FieldName="{@Customer}"><FormattedValue>Microsoft</FormattedValue><Value>Microsoft</Value></Field>
+<Field Name="ActivationSystem" FieldName="{@ActivationSystem}"><FormattedValue>CR80</FormattedValue><Value>CR80</Value></Field>
+<Field Name="ProductType" FieldName="{@Product}"><FormattedValue>S012300</FormattedValue><Value>S012300</Value></Field>
+<Field Name="ERPMaterialCode" FieldName="{@ERPMaterialCode}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="IntegratorPartID" FieldName="{@IntegratorPartID}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="IntegratorId" FieldName="{@IntegratorId}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ActivationType" FieldName="{@ActivationType}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="PartNumber" FieldName="{@ProductCode}"><FormattedValue>X22-11888-01_3321</FormattedValue><Value>X22-11888-01_3321</Value></Field>
+<Field Name="RetailBarcode" FieldName="{@RetailBarcode}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="RetailBarcodeType" FieldName="{@RetailBarcodeType}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="OCR" FieldName="{@OCR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="Channel1" FieldName="{@Channel}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+</CrystalReport>

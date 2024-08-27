@@ -1,0 +1,420 @@
+﻿@model SPV_Loader.Models.AthenaViewModel
+
+@if (ViewBag.AllItemsProcessed != null && (bool)ViewBag.AllItemsProcessed)
+{
+    <form action="@Url.Action("Download")" method="post">
+        <button type="submit">Download XML File</button>
+    </form>
+}
+else
+{
+    using (Html.BeginForm("Process", "Athena", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.AthenaDetails.Id)
+        @Html.HiddenFor(m => m.ExportAthena.Id)
+
+        <div class="grid-container1">
+            <div>
+                <input type="submit" value="Save & Next" />
+            </div>
+        </div>
+
+        <br />
+        <div class="jumbotron">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.AthenaDetails.Id)
+            @Html.HiddenFor(model => model.AthenaDetails.PartNumberSku)
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.JobNumber, "Job Number")
+                        @Html.EditorFor(model => model.AthenaDetails.JobNumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.JobNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAthena.JobQty, "Job Quantity")
+                        @Html.EditorFor(model => model.ExportAthena.JobQty, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportAthena.JobQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAthena.PartNumberSku, "Part Number")
+                        @Html.EditorFor(model => model.ExportAthena.PartNumberSku, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportAthena.PartNumberSku, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.PurchaseOrderNumber, "PO Number")
+                        @Html.EditorFor(model => model.AthenaDetails.PurchaseOrderNumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.PurchaseOrderNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.PurchaseOrderLine, "PO Line")
+                        @Html.EditorFor(model => model.AthenaDetails.PurchaseOrderLine, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.PurchaseOrderLine, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.SalesOrderNumber, "SO Number")
+                        @Html.EditorFor(model => model.AthenaDetails.SalesOrderNumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.SalesOrderNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.AscmOrderId, "ASCM Order ID" +
+                       "")
+                        @Html.EditorFor(model => model.AthenaDetails.AscmOrderId, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.AscmOrderId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.ErpMaterialCode, "ERP Material Code")
+                        @Html.EditorFor(model => model.AthenaDetails.ErpMaterialCode, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.ErpMaterialCode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAthena.FAIEnd, "FAI END")
+                        @Html.EditorFor(model => model.ExportAthena.FAIEnd, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportAthena.FAIEnd, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAthena.FAIStart, "FAI Start")
+                        @Html.EditorFor(model => model.ExportAthena.FAIStart, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportAthena.FAIStart, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.DueDate, "Due Date")
+                        @Html.EditorFor(model => model.AthenaDetails.DueDate, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.DueDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.CustomerAccountCode, "Customer Code")
+                        @Html.EditorFor(model => model.AthenaDetails.CustomerAccountCode, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.CustomerAccountCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.EndCustomer, "Customer")
+                        @Html.EditorFor(model => model.AthenaDetails.EndCustomer, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.EndCustomer, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.ActivationSystem, "Activation System")
+                        @Html.EditorFor(model => model.AthenaDetails.ActivationSystem, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.ActivationSystem, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.ProductType, "Product Type")
+                        @Html.EditorFor(model => model.AthenaDetails.ProductType, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.ProductType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.Channel)
+                        @Html.EditorFor(model => model.AthenaDetails.Channel, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.Channel, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.IntegratorID, "Integrator ID")
+                        @Html.EditorFor(model => model.AthenaDetails.IntegratorID, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.IntegratorID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.ActivationType, "Activation Type")
+                        @Html.EditorFor(model => model.AthenaDetails.ActivationType, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.ActivationType, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAthena.ContractTypeLVId, "Contract Type")
+                        @Html.EditorFor(model => model.ExportAthena.ContractTypeLVId, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportAthena.ContractTypeLVId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.RetailBarcode, "Retail Barcode")
+                        @Html.EditorFor(model => model.AthenaDetails.RetailBarcode, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.RetailBarcode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.RetailBarcodeType, "Retail Barcode Type")
+                        @Html.EditorFor(model => model.AthenaDetails.RetailBarcodeType, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.RetailBarcodeType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AthenaDetails.IntegratorPartID, "Integrator Part ID")
+                        @Html.EditorFor(model => model.AthenaDetails.IntegratorPartID, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.AthenaDetails.IntegratorPartID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- BLACKHAWK INDIRECT-->
+                    @if (Model?.AthenaDetails?.IntegratorID?.ToUpper() == "BLACKHAWK" && Model?.AthenaDetails?.Channel?.ToUpper() == "INDIRECT")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.BHNPONumber, "Blackhawk PO #")
+                            @Html.EditorFor(model => model.ExportAthena.BHNPONumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.BHNPONumber, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    @if (Model?.AthenaDetails?.ActivationSystem?.ToUpper() == "DLC")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.JobTypeLVId, "Job Type")
+                            @Html.EditorFor(model => model.ExportAthena.JobTypeLVId, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.JobTypeLVId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.Description, "Description")
+                            @Html.EditorFor(model => model.ExportAthena.Description, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.Description, "", new { @class = "text-danger" })
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-2">
+                    <!--INCOMM INDIRECT -->
+                    @if (Model?.AthenaDetails?.IntegratorID?.ToUpper() == "INCOMM" && Model?.AthenaDetails?.Channel?.ToUpper() == "INDIRECT")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.IncommProductDescription, "WPN Description")
+                            @Html.EditorFor(model => model.ExportAthena.IncommProductDescription, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.IncommProductDescription, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.PackagingGTIN, "WPN Number")
+                            @Html.EditorFor(model => model.ExportAthena.PackagingGTIN, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.PackagingGTIN, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.AlternativePartNumber, "SOW Number")
+                            @Html.EditorFor(model => model.ExportAthena.AlternativePartNumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.AlternativePartNumber, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    <!-- DACH -->
+                    @if (Model?.IsDach == true)
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.DachCountry, "Dach Country")
+                            @Html.DropDownListFor(model => model.DachCountry,
+                                new SelectList(
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Text = "Please select a currency", Value = "" },
+                                        new SelectListItem { Text = "Germany", Value = "DE" },
+                                        new SelectListItem { Text = "Austria", Value = "AT" },
+                                        new SelectListItem { Text = "Switzerland", Value = "CH" },
+                                        // Add more currencies as needed
+                                    }, "Value", "Text"), new { @class = "form-control custom-form-control", @required = "required" })
+                            @Html.ValidationMessageFor(model => model.DachCountry, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.DachDescription, "Dach Description")
+                            @Html.EditorFor(model => model.DachDescription, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.DachDescription, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    <!-- INTEL -->
+                    @if (Model?.AthenaDetails?.EndCustomer?.ToUpper() == "INTEL SECURITY")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.JobComments, "Job Comments")
+                            @Html.TextAreaFor(model => model.ExportAthena.JobComments, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.JobComments, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    @if (Model?.AthenaDetails?.EndCustomer?.ToUpper() == "INTEL SECURITY")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.AlternativePartNumber, "Top Level SKU")
+                            @Html.EditorFor(model => model.ExportAthena.AlternativePartNumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.AlternativePartNumber, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    @if (Model?.AthenaDetails?.EndCustomer?.ToUpper() == "INTEL SECURITY")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.IncommProductDescription, "Product Name (from Artwork - Required)", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.ExportAthena.IncommProductDescription, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.IncommProductDescription, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    <!-- DLC -->
+                    @if (Model?.AthenaDetails?.ActivationSystem?.ToUpper() == "DLC")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.MSRequestNumber1, "ArvatoRequestID1")
+                            @Html.EditorFor(model => model.ExportAthena.MSRequestNumber1, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.MSRequestNumber1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.MSRequestNumber2, "ArvatoRequestID2")
+                            @Html.EditorFor(model => model.ExportAthena.MSRequestNumber2, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.MSRequestNumber2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.MSRequestNumber3, "ArvatoRequestID3")
+                            @Html.EditorFor(model => model.ExportAthena.MSRequestNumber3, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.MSRequestNumber3, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.MSRequestNumber4, "ArvatoRequestID4")
+                            @Html.EditorFor(model => model.ExportAthena.MSRequestNumber4, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.MSRequestNumber4, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.MSRequestNumber5, "ArvatoRequestID5")
+                            @Html.EditorFor(model => model.ExportAthena.MSRequestNumber5, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.MSRequestNumber5, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.ArtworkPartNumber, "ArtworkPartNumber")
+                            @Html.EditorFor(model => model.ExportAthena.ArtworkPartNumber, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.ArtworkPartNumber, "", new { @class = "text-danger" })
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-1">
+                    @if (Model?.AthenaDetails?.ActivationSystem?.ToUpper() == "DLC")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.PKPN1, "AssetID1")
+                            @Html.EditorFor(model => model.ExportAthena.PKPN1, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.PKPN1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.PKPN2, "AssetID2")
+                            @Html.EditorFor(model => model.ExportAthena.PKPN2, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.PKPN2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.PKPN3, "AssetID3")
+                            @Html.EditorFor(model => model.ExportAthena.PKPN3, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.PKPN3, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.PKPN4, "AssetID4")
+                            @Html.EditorFor(model => model.ExportAthena.PKPN4, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.PKPN4, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.PKPN5, "AssetID5")
+                            @Html.EditorFor(model => model.ExportAthena.PKPN5, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.PKPN5, "", new { @class = "text-danger" })
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-1">
+                    @if (Model?.AthenaDetails?.ActivationSystem?.ToUpper() == "DLC")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.BOMComment1, "BOMComment1")
+                            @Html.EditorFor(model => model.ExportAthena.BOMComment1, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.BOMComment1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.BOMComment2, "BOMComment2")
+                            @Html.EditorFor(model => model.ExportAthena.BOMComment2, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.BOMComment2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.BOMComment3, "BOMComment3")
+                            @Html.EditorFor(model => model.ExportAthena.BOMComment3, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.BOMComment3, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.BOMComment4, "BOMComment4")
+                            @Html.EditorFor(model => model.ExportAthena.BOMComment4, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.BOMComment4, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAthena.BOMComment5, "BOMComment5")
+                            @Html.EditorFor(model => model.ExportAthena.BOMComment5, new { htmlAttributes = new { @class = "form-control custom-form-control-DLC" } })
+                            @Html.ValidationMessageFor(model => model.ExportAthena.BOMComment5, "", new { @class = "text-danger" })
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    }
+}
+
+
+        <style>
+            .custom-form-group {
+                margin-bottom: 15px;
+            }
+
+            .custom-form-control {
+                width: 90%; /* Adjust the width to make the inputs narrower */
+            }
+
+            .custom-form-control-DLC {
+                width: 150%; /* Adjust the width to make the inputs narrower */
+                margin-right: 10px; /* Add space between adjacent text boxes */
+            }
+
+            .form-horizontal .col-md-2 {
+                padding-right: 10px; /* Add space between columns */
+            }
+
+            .grid-container1 {
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+        </style>
+
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

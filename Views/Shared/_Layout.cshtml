@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DIE Locations</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-top" style="background-color: #8a6d3b">
+        <div class="container-fluid">
+            <div class="navbar-collapse collapse">
+                <table width="90%">
+                    <tr>
+                        <td style="padding-left:20px">
+                            <h4 class="department"><strong>SPV Loader</strong></h4>
+                        </td>
+                        <td>
+                            <h2 class="department"><strong>@TempData["LoaderName"]</strong></h2>
+                        </td>
+                        <td style="float: right; padding:5px">
+                            <img src="~/Content/ColormanLogoName.jpeg" class="headerImg" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <p><img src="~/Content/ColormanLogo.png" class="footerImg" /> &copy; @DateTime.Now.Year - Colorman</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</body>
+</html>
