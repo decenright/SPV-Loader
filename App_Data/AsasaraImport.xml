@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentElement>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195814</jobID>
+    <jobQty>200000</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 16 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>0</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722526</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_000_BC_OHKHW</customerJobNumber>
+    <integratorID>OHKHW</integratorID>
+    <productDescription>Google Play 5 - 200 EUR Code128C 16 Digits_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber></alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980715</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NO8</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>3TCJ6G</pinFile>
+    <WCTPinFile>1R9M2K</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195816</jobID>
+    <jobQty>550000</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>10</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722540</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_010_BC_BRDWO</customerJobNumber>
+    <integratorID>BRDWO</integratorID>
+    <productDescription>Google Play 10 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>7715401</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980739</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NOA</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>11XO0W</pinFile>
+    <WCTPinFile>XBMZYX</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195818</jobID>
+    <jobQty>500000</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>25</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722472</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_025_BC_IKPJN</customerJobNumber>
+    <integratorID>IKPJN</integratorID>
+    <productDescription>Google Play 25 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>8879107</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980661</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NOC</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>HT7DQ9</pinFile>
+    <WCTPinFile>TP63YR</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195813</jobID>
+    <jobQty>400000</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 16 digitsXX</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>100</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722502</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_100_BC_JAYOG</customerJobNumber>
+    <integratorID>JAYOG</integratorID>
+    <productDescription>Google Play 100 EUR Code128C 16 Digits_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>No match</barcodeStyleType>
+    <alternativePartNumber></alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980692</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NO7</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>P7DJM1</pinFile>
+    <WCTPinFile>KG3QXF</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195819</jobID>
+    <jobQty>259420</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>50</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722496</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_050_BC_XUKMB</customerJobNumber>
+    <integratorID>XUKMB</integratorID>
+    <productDescription>Google Play 50 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>8946510</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980685</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NOD</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>NXW0F9</pinFile>
+    <WCTPinFile>GE5OBM</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195820</jobID>
+    <jobQty>210340</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>100</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722519</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_100_BC_KNQOR</customerJobNumber>
+    <integratorID>KNQOR</integratorID>
+    <productDescription>Google Play 100 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>8878913</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980708</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NOE</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>IXBA2N</pinFile>
+    <WCTPinFile>N8DF93</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195821</jobID>
+    <jobQty>530240</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>0</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722533</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_000_BC_VMODH</customerJobNumber>
+    <integratorID>VMODH</integratorID>
+    <productDescription>Google Play 5 - 200 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>8882216</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980722</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NOF</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>SOZVOR</pinFile>
+    <WCTPinFile>3161Z2</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195815</jobID>
+    <jobQty>500000</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>5</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722434</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_005_BC_HRLGT</customerJobNumber>
+    <integratorID>HRLGT</integratorID>
+    <productDescription>Google Play 5 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>7715898</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980623</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NO9</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>M3J7XT</pinFile>
+    <WCTPinFile>WA51AY</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+  <AsasaraImport>
+    <orderID>255818</orderID>
+    <jobID>195817</jobID>
+    <jobQty>450000</jobQty>
+    <integratorName>ePay</integratorName>
+    <activationType>Code 128C 32 digits</activationType>
+    <regionID>EMEA</regionID>
+    <pptQty>100</pptQty>
+    <denomination>15</denomination>
+    <currency>EUR</currency>
+    <retailBarcode>4251976722458</retailBarcode>
+    <customerJobNumber>2023_01_DE_EPY_M6_015_BC_LRMWK</customerJobNumber>
+    <integratorID>LRMWK</integratorID>
+    <productDescription>Google Play 15 EUR OneCode Code 128C 32digit_Standard DE</productDescription>
+    <maskID>MASK03_ARVATO_EPAYGG</maskID>
+    <dummyRecords></dummyRecords>
+    <dummyRecordsCount></dummyRecordsCount>
+    <dummyRecordsEvery></dummyRecordsEvery>
+    <packQty>10</packQty>
+    <caseQty>200</caseQty>
+    <palletQty>44800</palletQty>
+    <expiryDate>4912</expiryDate>
+    <whiteCardTestQty>100</whiteCardTestQty>
+    <retailBarcodeType>EAN</retailBarcodeType>
+    <barcodeStyleType>Code 128C</barcodeStyleType>
+    <alternativePartNumber>8882904</alternativePartNumber>
+    <country>DE</country>
+    <eanBundle></eanBundle>
+    <eanBox>4251972980647</eanBox>
+    <DODHumanFontTypeID>Yes</DODHumanFontTypeID>
+    <partnerTextBox>Google Play</partnerTextBox>
+    <partnerCode></partnerCode>
+    <brand></brand>
+    <VASBoxDescription></VASBoxDescription>
+    <palletTypeID>EURO</palletTypeID>
+    <comments></comments>
+    <recipientAddress1>HPZ Zentrum  Krefeld-Kreis Viersen gGmbH c/o Plentyco GmbH</recipientAddress1>
+    <recipientAddress2>Lötscher Weg 102</recipientAddress2>
+    <recipientAddress3>Nettetal North Rhine-Westphalia 41334</recipientAddress3>
+    <recipientAddress4>DE</recipientAddress4>
+    <recipientAddress5></recipientAddress5>
+    <recipientAddress6></recipientAddress6>
+    <codeFormat></codeFormat>
+    <vasType></vasType>
+    <FAIQty>20</FAIQty>
+    <OCR>NOB</OCR>
+    <VASPackDescription></VASPackDescription>
+    <labelStyle>EPAY VAS A</labelStyle>
+    <activationMode>Barcode Only</activationMode>
+    <pinFile>0KNPCY</pinFile>
+    <WCTPinFile>CIY3I1</WCTPinFile>
+    <eanPallet></eanPallet>
+    <BHNPONumber></BHNPONumber>
+  </AsasaraImport>
+</DocumentElement>

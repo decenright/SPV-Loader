@@ -12,6 +12,65 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AsasaraJobs">
+      <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraJob">
+        <MappingFragment StoreEntitySet="AsasaraJobs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
+          <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
+          <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
+          <ScalarProperty Name="BuildQty" ColumnName="BuildQty" />
+          <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="OCR" ColumnName="OCR" />
+          <ScalarProperty Name="Campaign_ID" ColumnName="Campaign ID" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project ID" />
+          <ScalarProperty Name="MMYY" ColumnName="MMYY" />
+          <ScalarProperty Name="Integrator_Share" ColumnName="Integrator Share" />
+          <ScalarProperty Name="Printer_Share" ColumnName="Printer Share" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Line_Description" ColumnName="Line Description" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Integrator_Product_ID" ColumnName="Integrator Product ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="In_DC_Date" ColumnName="In DC Date" />
+          <ScalarProperty Name="Production_UPC" ColumnName="Production UPC" />
+          <ScalarProperty Name="Form_Factor" ColumnName="Form Factor" />
+          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+          <ScalarProperty Name="Partner_Encoding_Type" ColumnName="Partner Encoding Type" />
+          <ScalarProperty Name="Internal_Activation" ColumnName="Internal Activation" />
+          <ScalarProperty Name="Production_Run_group" ColumnName="Production Run group" />
+          <ScalarProperty Name="Is_UPC_On_Card" ColumnName="Is UPC On Card" />
+          <ScalarProperty Name="Is_Reprint" ColumnName="Is Reprint" />
+          <ScalarProperty Name="Google_FAI_Quantity" ColumnName="Google FAI Quantity" />
+          <ScalarProperty Name="Integrator_FAI_Quantity" ColumnName="Integrator FAI Quantity" />
+          <ScalarProperty Name="Test_Quantity_Production_Data_Proof" ColumnName="Test Quantity Production Data Proof" />
+          <ScalarProperty Name="Test_Quantity_Sandbox_Dev" ColumnName="Test Quantity Sandbox Dev" />
+          <ScalarProperty Name="Ship_To_Location_Text" ColumnName="Ship To Location Text" />
+          <ScalarProperty Name="Ship_To_Location_Contact" ColumnName="Ship To Location Contact" />
+          <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Text" ColumnName="Ship To Location 1 Test Cards Text" />
+          <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Contact" ColumnName="Ship To Location 1 Test Cards Contact" />
+          <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Text" ColumnName="Ship To Location 2 Test Cards Text" />
+          <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Contact" ColumnName="Ship To Location 2 Test Cards Contact" />
+          <ScalarProperty Name="Cards_Per_Pack" ColumnName="Cards Per Pack" />
+          <ScalarProperty Name="Packs_Per_Carton" ColumnName="Packs Per Carton" />
+          <ScalarProperty Name="Cards_Per_Carton" ColumnName="Cards Per Carton" />
+          <ScalarProperty Name="Pack_EAN" ColumnName="Pack EAN" />
+          <ScalarProperty Name="Pallet_EAN" ColumnName="Pallet EAN" />
+          <ScalarProperty Name="Case_EAN" ColumnName="Case EAN" />
+          <ScalarProperty Name="Spec_Guide_Version" ColumnName="Spec Guide Version" />
+          <ScalarProperty Name="Logistics_Guide_Version" ColumnName="Logistics Guide Version" />
+          <ScalarProperty Name="NAN___Shipping_PO___Product_Packing_Label" ColumnName="NAN - Shipping PO - Product Packing Label" />
+          <ScalarProperty Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" ColumnName="BHN Brand Code - BHN 1st Case Quantity - PID Number" />
+          <ScalarProperty Name="BHN_Pack_Description___Packing_UPC" ColumnName="BHN Pack Description - Packing UPC" />
+          <ScalarProperty Name="Packaging___Encoding_Identifier" ColumnName="Packaging - Encoding Identifier" />
+          <ScalarProperty Name="Label_Spec" ColumnName="Label Spec" />
+          <ScalarProperty Name="Outer_Box_Caption" ColumnName="Outer Box Caption" />
+          <ScalarProperty Name="Is_Card_Import_File_Required" ColumnName="Is Card Import File Required" />
+          <ScalarProperty Name="Is_Send_First_Box_To_BHN" ColumnName="Is Send First Box To BHN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AsasaraRegionLookups">
       <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraRegionLookup">
         <MappingFragment StoreEntitySet="AsasaraRegionLookup">
@@ -111,6 +170,126 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Daches">
+      <EntityTypeMapping TypeName="SpvLoaderModel.Dach">
+        <MappingFragment StoreEntitySet="Dach">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsDachOrder" ColumnName="IsDachOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportAsasaras">
+      <EntityTypeMapping TypeName="SpvLoaderModel.ExportAsasara">
+        <MappingFragment StoreEntitySet="ExportAsasara">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="jobID" ColumnName="jobID" />
+          <ScalarProperty Name="jobQty" ColumnName="jobQty" />
+          <ScalarProperty Name="integratorName" ColumnName="integratorName" />
+          <ScalarProperty Name="activationType" ColumnName="activationType" />
+          <ScalarProperty Name="regionID" ColumnName="regionID" />
+          <ScalarProperty Name="pptQty" ColumnName="pptQty" />
+          <ScalarProperty Name="denomination" ColumnName="denomination" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="retailBarcode" ColumnName="retailBarcode" />
+          <ScalarProperty Name="customerJobNumber" ColumnName="customerJobNumber" />
+          <ScalarProperty Name="integratorID" ColumnName="integratorID" />
+          <ScalarProperty Name="productDescription" ColumnName="productDescription" />
+          <ScalarProperty Name="maskID" ColumnName="maskID" />
+          <ScalarProperty Name="dummyRecords" ColumnName="dummyRecords" />
+          <ScalarProperty Name="dummyRecordsCount" ColumnName="dummyRecordsCount" />
+          <ScalarProperty Name="dummyRecordsEvery" ColumnName="dummyRecordsEvery" />
+          <ScalarProperty Name="packQty" ColumnName="packQty" />
+          <ScalarProperty Name="caseQty" ColumnName="caseQty" />
+          <ScalarProperty Name="palletQty" ColumnName="palletQty" />
+          <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+          <ScalarProperty Name="whiteCardTestQty" ColumnName="whiteCardTestQty" />
+          <ScalarProperty Name="retailBarcodeType" ColumnName="retailBarcodeType" />
+          <ScalarProperty Name="barcodeStyleType" ColumnName="barcodeStyleType" />
+          <ScalarProperty Name="alternativePartNumber" ColumnName="alternativePartNumber" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="eanBundle" ColumnName="eanBundle" />
+          <ScalarProperty Name="eanBox" ColumnName="eanBox" />
+          <ScalarProperty Name="DODHumanFontTypeID" ColumnName="DODHumanFontTypeID" />
+          <ScalarProperty Name="partnerTextBox" ColumnName="partnerTextBox" />
+          <ScalarProperty Name="partnerCode" ColumnName="partnerCode" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="VASBoxDescription" ColumnName="VASBoxDescription" />
+          <ScalarProperty Name="palletTypeID" ColumnName="palletTypeID" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="recipientAddress1" ColumnName="recipientAddress1" />
+          <ScalarProperty Name="recipientAddress2" ColumnName="recipientAddress2" />
+          <ScalarProperty Name="recipientAddress3" ColumnName="recipientAddress3" />
+          <ScalarProperty Name="recipientAddress4" ColumnName="recipientAddress4" />
+          <ScalarProperty Name="recipientAddress5" ColumnName="recipientAddress5" />
+          <ScalarProperty Name="recipientAddress6" ColumnName="recipientAddress6" />
+          <ScalarProperty Name="codeFormat" ColumnName="codeFormat" />
+          <ScalarProperty Name="vasType" ColumnName="vasType" />
+          <ScalarProperty Name="FAIQty" ColumnName="FAIQty" />
+          <ScalarProperty Name="OCR" ColumnName="OCR" />
+          <ScalarProperty Name="VASPackDescription" ColumnName="VASPackDescription" />
+          <ScalarProperty Name="labelStyle" ColumnName="labelStyle" />
+          <ScalarProperty Name="activationMode" ColumnName="activationMode" />
+          <ScalarProperty Name="pinFile" ColumnName="pinFile" />
+          <ScalarProperty Name="WCTPinFile" ColumnName="WCTPinFile" />
+          <ScalarProperty Name="eanPallet" ColumnName="eanPallet" />
+          <ScalarProperty Name="BHNPONumber" ColumnName="BHNPONumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportAthenas">
+      <EntityTypeMapping TypeName="SpvLoaderModel.ExportAthena">
+        <MappingFragment StoreEntitySet="ExportAthena">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="PurchaseOrderLine" ColumnName="PurchaseOrderLine" />
+          <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
+          <ScalarProperty Name="JobQty" ColumnName="JobQty" />
+          <ScalarProperty Name="ASCMOrderID" ColumnName="ASCMOrderID" />
+          <ScalarProperty Name="EndCustomer" ColumnName="EndCustomer" />
+          <ScalarProperty Name="ActivationSystem" ColumnName="ActivationSystem" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="ErpMaterialCode" ColumnName="ErpMaterialCode" />
+          <ScalarProperty Name="FAIStart" ColumnName="FAIStart" />
+          <ScalarProperty Name="FAIEnd" ColumnName="FAIEnd" />
+          <ScalarProperty Name="ContractTypeLVId" ColumnName="ContractTypeLVId" />
+          <ScalarProperty Name="PartNumberSku" ColumnName="PartNumberSku" />
+          <ScalarProperty Name="JobComments" ColumnName="JobComments" />
+          <ScalarProperty Name="JobTypeLVId" ColumnName="JobTypeLVId" />
+          <ScalarProperty Name="SpecificationLVId" ColumnName="SpecificationLVId" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="ArtworkPartNumber" ColumnName="ArtworkPartNumber" />
+          <ScalarProperty Name="PackQty" ColumnName="PackQty" />
+          <ScalarProperty Name="BoxQty" ColumnName="BoxQty" />
+          <ScalarProperty Name="PalletQty" ColumnName="PalletQty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IncommRetailer" ColumnName="IncommRetailer" />
+          <ScalarProperty Name="IncommProductDescription" ColumnName="IncommProductDescription" />
+          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+          <ScalarProperty Name="DenominationCurrency" ColumnName="DenominationCurrency" />
+          <ScalarProperty Name="AlternativePartNumber" ColumnName="AlternativePartNumber" />
+          <ScalarProperty Name="PackagingGTIN" ColumnName="PackagingGTIN" />
+          <ScalarProperty Name="BHNPONumber" ColumnName="BHNPONumber" />
+          <ScalarProperty Name="MSRequestNumber1" ColumnName="MSRequestNumber1" />
+          <ScalarProperty Name="BOMComment1" ColumnName="BOMComment1" />
+          <ScalarProperty Name="PKPN1" ColumnName="PKPN1" />
+          <ScalarProperty Name="MSRequestNumber2" ColumnName="MSRequestNumber2" />
+          <ScalarProperty Name="BOMComment2" ColumnName="BOMComment2" />
+          <ScalarProperty Name="PKPN2" ColumnName="PKPN2" />
+          <ScalarProperty Name="MSRequestNumber3" ColumnName="MSRequestNumber3" />
+          <ScalarProperty Name="BOMComment3" ColumnName="BOMComment3" />
+          <ScalarProperty Name="PKPN3" ColumnName="PKPN3" />
+          <ScalarProperty Name="MSRequestNumber4" ColumnName="MSRequestNumber4" />
+          <ScalarProperty Name="BOMComment4" ColumnName="BOMComment4" />
+          <ScalarProperty Name="PKPN4" ColumnName="PKPN4" />
+          <ScalarProperty Name="MSRequestNumber5" ColumnName="MSRequestNumber5" />
+          <ScalarProperty Name="BOMComment5" ColumnName="BOMComment5" />
+          <ScalarProperty Name="PKPN5" ColumnName="PKPN5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="SpvLoaderModel.Order">
         <MappingFragment StoreEntitySet="Orders">
@@ -122,64 +301,6 @@
           <ScalarProperty Name="OCR" ColumnName="OCR" />
           <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AsasaraJobs">
-      <EntityTypeMapping TypeName="SpvLoaderModel.AsasaraJob">
-        <MappingFragment StoreEntitySet="AsasaraJobs">
-          <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
-          <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
-          <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
-          <ScalarProperty Name="BuildQty" ColumnName="BuildQty" />
-          <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
-          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
-          <ScalarProperty Name="OCR" ColumnName="OCR" />
-          <ScalarProperty Name="Campaign_ID" ColumnName="Campaign ID" />
-          <ScalarProperty Name="Project_ID" ColumnName="Project ID" />
-          <ScalarProperty Name="MMYY" ColumnName="MMYY" />
-          <ScalarProperty Name="Integrator_Share" ColumnName="Integrator Share" />
-          <ScalarProperty Name="Printer_Share" ColumnName="Printer Share" />
-          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
-          <ScalarProperty Name="Line_Description" ColumnName="Line Description" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-          <ScalarProperty Name="Integrator_Product_ID" ColumnName="Integrator Product ID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="In_DC_Date" ColumnName="In DC Date" />
-          <ScalarProperty Name="Production_UPC" ColumnName="Production UPC" />
-          <ScalarProperty Name="Form_Factor" ColumnName="Form Factor" />
-          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
-          <ScalarProperty Name="Partner_Encoding_Type" ColumnName="Partner Encoding Type" />
-          <ScalarProperty Name="Internal_Activation" ColumnName="Internal Activation" />
-          <ScalarProperty Name="Production_Run_group" ColumnName="Production Run group" />
-          <ScalarProperty Name="Is_UPC_On_Card" ColumnName="Is UPC On Card" />
-          <ScalarProperty Name="Is_Reprint" ColumnName="Is Reprint" />
-          <ScalarProperty Name="Google_FAI_Quantity" ColumnName="Google FAI Quantity" />
-          <ScalarProperty Name="Integrator_FAI_Quantity" ColumnName="Integrator FAI Quantity" />
-          <ScalarProperty Name="Test_Quantity_Production_Data_Proof" ColumnName="Test Quantity Production Data Proof" />
-          <ScalarProperty Name="Test_Quantity_Sandbox_Dev" ColumnName="Test Quantity Sandbox Dev" />
-          <ScalarProperty Name="Ship_To_Location_Text" ColumnName="Ship To Location Text" />
-          <ScalarProperty Name="Ship_To_Location_Contact" ColumnName="Ship To Location Contact" />
-          <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Text" ColumnName="Ship To Location 1 Test Cards Text" />
-          <ScalarProperty Name="Ship_To_Location_1_Test_Cards_Contact" ColumnName="Ship To Location 1 Test Cards Contact" />
-          <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Text" ColumnName="Ship To Location 2 Test Cards Text" />
-          <ScalarProperty Name="Ship_To_Location_2_Test_Cards_Contact" ColumnName="Ship To Location 2 Test Cards Contact" />
-          <ScalarProperty Name="Cards_Per_Pack" ColumnName="Cards Per Pack" />
-          <ScalarProperty Name="Packs_Per_Carton" ColumnName="Packs Per Carton" />
-          <ScalarProperty Name="Cards_Per_Carton" ColumnName="Cards Per Carton" />
-          <ScalarProperty Name="Pack_EAN" ColumnName="Pack EAN" />
-          <ScalarProperty Name="Pallet_EAN" ColumnName="Pallet EAN" />
-          <ScalarProperty Name="Case_EAN" ColumnName="Case EAN" />
-          <ScalarProperty Name="Spec_Guide_Version" ColumnName="Spec Guide Version" />
-          <ScalarProperty Name="Logistics_Guide_Version" ColumnName="Logistics Guide Version" />
-          <ScalarProperty Name="NAN___Shipping_PO___Product_Packing_Label" ColumnName="NAN - Shipping PO - Product Packing Label" />
-          <ScalarProperty Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" ColumnName="BHN Brand Code - BHN 1st Case Quantity - PID Number" />
-          <ScalarProperty Name="BHN_Pack_Description___Packing_UPC" ColumnName="BHN Pack Description - Packing UPC" />
-          <ScalarProperty Name="Packaging___Encoding_Identifier" ColumnName="Packaging - Encoding Identifier" />
-          <ScalarProperty Name="Label_Spec" ColumnName="Label Spec" />
-          <ScalarProperty Name="Outer_Box_Caption" ColumnName="Outer Box Caption" />
-          <ScalarProperty Name="Is_Card_Import_File_Required" ColumnName="Is Card Import File Required" />
-          <ScalarProperty Name="Is_Send_First_Box_To_BHN" ColumnName="Is Send First Box To BHN" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -239,67 +360,6 @@
           <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
           <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
           <ScalarProperty Name="OrderOsLink" ColumnName="OrderOsLink" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ExportAthenas">
-      <EntityTypeMapping TypeName="SpvLoaderModel.ExportAthena">
-        <MappingFragment StoreEntitySet="ExportAthena">
-          <ScalarProperty Name="PKPN5" ColumnName="PKPN5" />
-          <ScalarProperty Name="BOMComment5" ColumnName="BOMComment5" />
-          <ScalarProperty Name="MSRequestNumber5" ColumnName="MSRequestNumber5" />
-          <ScalarProperty Name="PKPN4" ColumnName="PKPN4" />
-          <ScalarProperty Name="BOMComment4" ColumnName="BOMComment4" />
-          <ScalarProperty Name="MSRequestNumber4" ColumnName="MSRequestNumber4" />
-          <ScalarProperty Name="PKPN3" ColumnName="PKPN3" />
-          <ScalarProperty Name="BOMComment3" ColumnName="BOMComment3" />
-          <ScalarProperty Name="MSRequestNumber3" ColumnName="MSRequestNumber3" />
-          <ScalarProperty Name="PKPN2" ColumnName="PKPN2" />
-          <ScalarProperty Name="BOMComment2" ColumnName="BOMComment2" />
-          <ScalarProperty Name="MSRequestNumber2" ColumnName="MSRequestNumber2" />
-          <ScalarProperty Name="PKPN1" ColumnName="PKPN1" />
-          <ScalarProperty Name="BOMComment1" ColumnName="BOMComment1" />
-          <ScalarProperty Name="MSRequestNumber1" ColumnName="MSRequestNumber1" />
-          <ScalarProperty Name="BHNPONumber" ColumnName="BHNPONumber" />
-          <ScalarProperty Name="PackagingGTIN" ColumnName="PackagingGTIN" />
-          <ScalarProperty Name="AlternativePartNumber" ColumnName="AlternativePartNumber" />
-          <ScalarProperty Name="DenominationCurrency" ColumnName="DenominationCurrency" />
-          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
-          <ScalarProperty Name="IncommProductDescription" ColumnName="IncommProductDescription" />
-          <ScalarProperty Name="IncommRetailer" ColumnName="IncommRetailer" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="PalletQty" ColumnName="PalletQty" />
-          <ScalarProperty Name="BoxQty" ColumnName="BoxQty" />
-          <ScalarProperty Name="PackQty" ColumnName="PackQty" />
-          <ScalarProperty Name="ArtworkPartNumber" ColumnName="ArtworkPartNumber" />
-          <ScalarProperty Name="UPC" ColumnName="UPC" />
-          <ScalarProperty Name="SpecificationLVId" ColumnName="SpecificationLVId" />
-          <ScalarProperty Name="JobTypeLVId" ColumnName="JobTypeLVId" />
-          <ScalarProperty Name="JobComments" ColumnName="JobComments" />
-          <ScalarProperty Name="PartNumberSku" ColumnName="PartNumberSku" />
-          <ScalarProperty Name="ContractTypeLVId" ColumnName="ContractTypeLVId" />
-          <ScalarProperty Name="FAIEnd" ColumnName="FAIEnd" />
-          <ScalarProperty Name="FAIStart" ColumnName="FAIStart" />
-          <ScalarProperty Name="ErpMaterialCode" ColumnName="ErpMaterialCode" />
-          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
-          <ScalarProperty Name="ActivationSystem" ColumnName="ActivationSystem" />
-          <ScalarProperty Name="EndCustomer" ColumnName="EndCustomer" />
-          <ScalarProperty Name="ASCMOrderID" ColumnName="ASCMOrderID" />
-          <ScalarProperty Name="JobQty" ColumnName="JobQty" />
-          <ScalarProperty Name="CustomerAccountCode" ColumnName="CustomerAccountCode" />
-          <ScalarProperty Name="PurchaseOrderLine" ColumnName="PurchaseOrderLine" />
-          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-          <ScalarProperty Name="JobId" ColumnName="JobId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Daches">
-      <EntityTypeMapping TypeName="SpvLoaderModel.Dach">
-        <MappingFragment StoreEntitySet="Dach">
-          <ScalarProperty Name="IsDachOrder" ColumnName="IsDachOrder" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

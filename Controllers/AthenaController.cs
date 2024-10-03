@@ -24,8 +24,6 @@ namespace SPV_Loader.Controllers
         {
             @TempData["LoaderName"] = "ATHENA";
 
-            // test commit
-
             if (currentIndex == -1)
             {
                 TempData["allItemsProcessed"] = false;
@@ -34,6 +32,7 @@ namespace SPV_Loader.Controllers
             }
             var viewModel = new AthenaViewModel();
             bool dach = false;
+            ViewBag.CurrentIndex = currentIndex;
 
             using (SpvLoaderEntities context = new SpvLoaderEntities())
             {
@@ -167,7 +166,7 @@ namespace SPV_Loader.Controllers
         }
 
         [HttpPost]
-        public ActionResult Process(AthenaViewModel model)
+        public ActionResult SaveAndNext(AthenaViewModel model)
         {
             if (model.ExportAthena.PartNumberSku != null && model.AthenaDetails.PartNumberSku != null)
             {

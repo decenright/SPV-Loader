@@ -14,6 +14,7 @@ namespace SPV_Loader
     
     public partial class AsasaraJob
     {
+        public int Id { get; set; }
         public string OrderOsLink { get; set; }
         public Nullable<int> JobNumber { get; set; }
         public Nullable<int> SalesOrder { get; set; }

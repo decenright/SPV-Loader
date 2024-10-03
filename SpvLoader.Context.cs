@@ -26,14 +26,15 @@ namespace SPV_Loader
         }
     
         public virtual DbSet<AsasaraActivationType> AsasaraActivationTypes { get; set; }
+        public virtual DbSet<AsasaraJob> AsasaraJobs { get; set; }
         public virtual DbSet<AsasaraRegionLookup> AsasaraRegionLookups { get; set; }
         public virtual DbSet<AsasaraWorkInstruction> AsasaraWorkInstructions { get; set; }
         public virtual DbSet<AthenaJob> AthenaJobs { get; set; }
         public virtual DbSet<BHNWorkInstruction> BHNWorkInstructions { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<AsasaraJob> AsasaraJobs { get; set; }
-        public virtual DbSet<Asasara_Order_WorkInstructions> Asasara_Order_WorkInstructions { get; set; }
-        public virtual DbSet<ExportAthena> ExportAthenas { get; set; }
         public virtual DbSet<Dach> Daches { get; set; }
+        public virtual DbSet<ExportAsasara> ExportAsasaras { get; set; }
+        public virtual DbSet<ExportAthena> ExportAthenas { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Asasara_Order_WorkInstructions> Asasara_Order_WorkInstructions { get; set; }
     }
 }

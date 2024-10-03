@@ -8,7 +8,7 @@
 }
 else
 {
-    using (Html.BeginForm("Process", "Athena", FormMethod.Post))
+    using (Html.BeginForm("SaveAndNext", "Athena", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -17,7 +17,7 @@ else
 
         <div class="grid-container1">
             <div>
-                <input type="submit" value="Save & Next" />
+                <input type="submit" value="SAVE & NEXT" class="btn btn-success" />
             </div>
         </div>
 
@@ -38,7 +38,14 @@ else
 
                     <div class="form-group custom-form-group">
                         @Html.LabelFor(model => model.ExportAthena.JobQty, "Job Quantity")
-                        @Html.EditorFor(model => model.ExportAthena.JobQty, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @if (Model?.ExportAthena?.JobQty != null && Model?.ExportAthena.JobQty.ToString() == "0")
+                        {
+                            @Html.EditorFor(model => model.ExportAthena.JobQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:red; color: white" } })
+                        }
+                        else
+                        {
+                            @Html.EditorFor(model => model.ExportAthena.JobQty, new { htmlAttributes = new { @class = "form-control custom-form-control"} })
+                        }
                         @Html.ValidationMessageFor(model => model.ExportAthena.JobQty, "", new { @class = "text-danger" })
                     </div>
 
@@ -70,8 +77,7 @@ else
 
                 <div class="col-md-2">
                     <div class="form-group custom-form-group">
-                        @Html.LabelFor(model => model.AthenaDetails.AscmOrderId, "ASCM Order ID" +
-                       "")
+                        @Html.LabelFor(model => model.AthenaDetails.AscmOrderId, "ASCM Order ID")
                         @Html.EditorFor(model => model.AthenaDetails.AscmOrderId, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
                         @Html.ValidationMessageFor(model => model.AthenaDetails.AscmOrderId, "", new { @class = "text-danger" })
                     </div>

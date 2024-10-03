@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web.Mvc;
 using SPV_Loader.Models;
 using System.IO;  // Ensure System.IO is being used for file operations
+using System.Text.RegularExpressions;
+using Microsoft.VisualBasic.FileIO;
 
 namespace SPV_Loader.Controllers
 {
@@ -126,9 +128,88 @@ namespace SPV_Loader.Controllers
                 {
                     exportAthena.FAIStart = "1";
                     exportAthena.FAIEnd = "1";
+                    string partNumber = athenaViewModel.AthenaDetails.PartNumberSku;
+                    partNumber = partNumber.Substring(0, partNumber.IndexOf("_"));
+
+                    string CSVFilePathName = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Intel.csv");
+
+                    if (System.IO.File.Exists(CSVFilePathName))  // Check if the file exists
+                    {
+                        try
+                        {
+                            DataTable intelLookup = new DataTable();
+
+                            // Use TextFieldParser to read CSV files correctly handling quoted fields
+                            using (TextFieldParser parser = new TextFieldParser(CSVFilePathName))
+                            {
+                                parser.TextFieldType = FieldType.Delimited;
+                                parser.SetDelimiters(",");  // Define the comma as the delimiter
+                                parser.HasFieldsEnclosedInQuotes = true;  // Set this to true to handle quotes
+
+                                // If there are lines to read, process them
+                                if (!parser.EndOfData)
+                                {
+                                    // Read the first line to get headers
+                                    string[] fields = parser.ReadFields();
+                                    if (fields != null)
+                                    {
+                                        int cols = fields.Length;
+
+                                        // Add columns to the DataTable using the header names, in lowercase
+                                        for (int i = 0; i < cols; i++)
+                                            intelLookup.Columns.Add(fields[i].ToLower(), typeof(string));
+                                    }
+
+                                    // Read remaining lines and populate the DataTable
+                                    while (!parser.EndOfData)
+                                    {
+                                        fields = parser.ReadFields();
+                                        if (fields != null)
+                                        {
+                                            DataRow row = intelLookup.NewRow();
+                                            for (int f = 0; f < fields.Length; f++)
+                                            {
+                                                row[f] = fields[f];
+                                            }
+                                            intelLookup.Rows.Add(row);
+                                        }
+                                    }
+                                }
+                            }
+
+                            // Perform lookup to find the matching part number
+                            foreach (DataRow row in intelLookup.Rows)
+                            {
+                                string lookupPartNumber = row[6].ToString();  // Assuming the first column contains the part number
+                                lookupPartNumber = Regex.Replace(lookupPartNumber, @"[^0-9-]", "");
+
+                                if (partNumber == lookupPartNumber)
+                                {
+                                    string A = "BusinessModel = " + row[15].ToString() + " " + "\n";
+                                    string B = "ScratchON/OFF = " + row[7].ToString() + " " + "\n";
+                                    string C = "PartNumber = " + row[6].ToString() + " " + "\n";
+                                    string D = "TopLevelSku = " + row[4].ToString() + " " + "\n";
+                                    string E = "CartonRetailCode = " + row[31].ToString() + "\n";
+                                    string F = "QrCodeRequired = " + row[45].ToString() + " ";
+                                    string jobComment = A + B + C + D + E + F;
+                                    exportAthena.JobComments = jobComment;
+                                    exportAthena.AlternativePartNumber = row[4].ToString().Replace("\"", ""); // remove quotes
+                                    break;
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error processing file: {ex.Message}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("The specified CSV file does not exist.");
+                    }
                 }
 
-                if(!string.IsNullOrEmpty(job.ActivationSystem) && job.ActivationSystem.ToUpper() == "DLC")
+                if (!string.IsNullOrEmpty(job.ActivationSystem) && job.ActivationSystem.ToUpper() == "DLC")
                 {
                     exportAthena.FAIStart = "0";
                     exportAthena.FAIEnd = "0";

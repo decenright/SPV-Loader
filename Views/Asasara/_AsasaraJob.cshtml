@@ -1,0 +1,445 @@
+﻿@model SPV_Loader.Models.AsasaraViewModel
+
+@if (ViewBag.AllItemsProcessed != null && (bool)ViewBag.AllItemsProcessed)
+{
+    <form action="@Url.Action("Download")" method="post">
+        <button type="submit">Download XML File</button>
+    </form>
+}
+else
+{
+    using (Html.BeginForm("SaveAndNext", "Asasara", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.AsasaraDetails.Id)
+        @Html.HiddenFor(m => m.ExportAsasara.Id)
+
+        <div class="grid-container1" style="display: flex; align-items: center;">
+            <div>
+                <input type="submit" value="SAVE & NEXT" class="btn btn-success" />
+            </div>
+            <div style="color:red; margin-left: 20px;">
+                @TempData["NewActivation"]
+            </div>
+            <div style="display: flex; gap: 10px; margin-left: 20px;">
+                <p style="color: grey; background-color: #CCFFCC; width: 80px;padding-left:3px">
+                    Tharstern
+                </p>
+                <p style="color: grey; background-color: #99CCFF; width: 80px; padding-left: 3px ">
+                    Asasara
+                </p>
+                <p style="color: grey; background-color: #FFCCCC; width: 80px; padding-left: 3px ">
+                    Label
+                </p>
+                <p style="color: grey; background-color: #FFCC99; width: 80px; padding-left: 3px ">
+                    Job Docket
+                </p>
+                <p style="color: grey; background-color: #FFFFCC; width: 80px; padding-left: 3px ">
+                    VAS
+                </p>
+                <p style="color: grey; background-color: #99FFCC; width: 80px; padding-left: 3px ">
+                    Loader
+                </p>
+            </div>
+        </div>
+
+        <br />
+        <div class="jumbotron">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.AsasaraDetails.Id)
+            @Html.HiddenFor(model => model.AsasaraDetails.PartNumber)
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AsasaraDetails.PartNumber, "Part Number")
+                        @Html.EditorFor(model => model.AsasaraDetails.PartNumber, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#CCFFCC;" } })
+
+                        @Html.ValidationMessageFor(model => model.AsasaraDetails.PartNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AsasaraDetails.JobNumber, "Job Number")
+                        @Html.EditorFor(model => model.AsasaraDetails.JobNumber, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#CCFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.AsasaraDetails.JobNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AsasaraDetails.SalesOrder, "Order Number")
+                        @Html.EditorFor(model => model.AsasaraDetails.SalesOrder, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#CCFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.AsasaraDetails.SalesOrder, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.AsasaraDetails.CustomerAccountCode, "Customer")
+                        @Html.EditorFor(model => model.AsasaraDetails.CustomerAccountCode, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#CCFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.AsasaraDetails.CustomerAccountCode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.integratorName, "Integrator Name")
+                        @Html.EditorFor(model => model.ExportAsasara.integratorName, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#CCFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.integratorName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.maskID, "Mask ID")
+                        @Html.EditorFor(model => model.ExportAsasara.maskID, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#99CCFF;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.maskID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.DODHumanFontTypeID, "DOD Human Font")
+                        @Html.EditorFor(model => model.ExportAsasara.DODHumanFontTypeID, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#99CCFF;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.DODHumanFontTypeID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.palletTypeID, "Pallet Type")
+                        @Html.EditorFor(model => model.ExportAsasara.palletTypeID, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#99CCFF;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.palletTypeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.denomination, "Denomination")
+                        @Html.EditorFor(model => model.ExportAsasara.denomination, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.denomination, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.currency, "Currency")
+                        @Html.EditorFor(model => model.ExportAsasara.currency, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.currency, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.retailBarcode, "Retail Barcode")
+                        @Html.EditorFor(model => model.ExportAsasara.retailBarcode, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.retailBarcode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.productDescription, "Product Description")
+                        @Html.EditorFor(model => model.ExportAsasara.productDescription, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.productDescription, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.packQty, "Pack Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.packQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.packQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.caseQty, "Box Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.caseQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.caseQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.palletQty, "Pallet Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.palletQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.palletQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.expiryDate, "Expiry Date")
+                        @Html.EditorFor(model => model.ExportAsasara.expiryDate, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.expiryDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.country, "Country")
+                        @Html.EditorFor(model => model.ExportAsasara.country, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.country, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @if (Model?.AsasaraDetails?.Integrator_Share == "Incomm" || Model?.AsasaraDetails?.Integrator_Share == "BHN")
+                        {
+                            @Html.LabelFor(model => model.ExportAsasara.eanBundle, "EAN Bundle")
+                            @Html.EditorFor(model => model.ExportAsasara.eanBundle, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                            @Html.ValidationMessageFor(model => model.ExportAsasara.eanBundle, "", new { @class = "text-danger" })
+                        }
+
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.eanBox, "EAN Box")
+                        @Html.EditorFor(model => model.ExportAsasara.eanBox, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.eanBox, "", new { @class = "text-danger" })
+                    </div>
+
+                    @if (Model?.AsasaraDetails?.Integrator_Share == "Incomm" || Model?.AsasaraDetails?.Integrator_Share == "BHN")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAsasara.eanPallet, "EAN Pallet")
+                            @Html.EditorFor(model => model.ExportAsasara.eanPallet, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                            @Html.ValidationMessageFor(model => model.ExportAsasara.eanPallet, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    <div class="form-group custom-form-group">
+                        @if (Model?.AsasaraDetails?.Integrator_Share == "BHN")
+                        {
+                            @Html.LabelFor(model => model.ExportAsasara.BHNPONumber, "BHN PO Number")
+                            @Html.EditorFor(model => model.ExportAsasara.BHNPONumber, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                            @Html.ValidationMessageFor(model => model.ExportAsasara.BHNPONumber, "", new { @class = "text-danger" })
+                        }
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.recipientAddress1, "Recipient Address 1")
+                        @Html.EditorFor(model => model.ExportAsasara.recipientAddress1, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.recipientAddress1, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.recipientAddress2, "Recipient Address 2")
+                        @Html.EditorFor(model => model.ExportAsasara.recipientAddress2, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.recipientAddress2, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.recipientAddress3, "Recipient Address 3")
+                        @Html.EditorFor(model => model.ExportAsasara.recipientAddress3, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.recipientAddress3, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.recipientAddress4, "Recipient Address 4")
+                        @Html.EditorFor(model => model.ExportAsasara.recipientAddress4, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.recipientAddress4, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.recipientAddress5, "Recipient Address 5")
+                        @Html.EditorFor(model => model.ExportAsasara.recipientAddress5, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.recipientAddress5, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.recipientAddress6, "Recipient Address 6")
+                        @Html.EditorFor(model => model.ExportAsasara.recipientAddress6, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCCCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.recipientAddress6, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.jobQty, "Job Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.jobQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.jobQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.activationType, "Activation Type")
+                        @if (Model?.ExportAsasara?.activationType == "Country Invalid" || Model?.ExportAsasara?.activationType == "WARNING - new ActivationType")
+                        {
+                            @Html.EditorFor(model => model.ExportAsasara.activationType, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:red; color:white" } })
+                        }
+                        else
+                        {
+                            @Html.EditorFor(model => model.ExportAsasara.activationType, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        }
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.activationType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.regionID, "Region ID")
+                        @if (Model?.ExportAsasara?.activationType == "WARNING - new ActivationType")
+                        {
+                            @Html.EditorFor(model => model.ExportAsasara.regionID, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:red; color:white" } })
+                        }
+                        else
+                        {
+                            @Html.EditorFor(model => model.ExportAsasara.regionID, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        }
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.regionID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.pptQty, "PPT Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.pptQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.pptQty, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.integratorID, "Integrator ID")
+                        @Html.EditorFor(model => model.ExportAsasara.integratorID, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.integratorID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.whiteCardTestQty, "White Card Test Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.whiteCardTestQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.whiteCardTestQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.barcodeStyleType, "Barcode Style Type")
+                        @if (Model?.ExportAsasara?.barcodeStyleType == "No match - enter text manually")
+                        {
+                            @Html.EditorFor(model => model.ExportAsasara.barcodeStyleType, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:red; color:white" } })
+                        }
+                        else
+                        {
+                            @Html.EditorFor(model => model.ExportAsasara.barcodeStyleType, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        }
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.barcodeStyleType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.FAIQty, "FAI Qty")
+                        @Html.EditorFor(model => model.ExportAsasara.FAIQty, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.FAIQty, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.OCR, "OCR")
+                        @Html.EditorFor(model => model.ExportAsasara.OCR, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.OCR, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.labelStyle, "Label Style")
+                        @Html.EditorFor(model => model.ExportAsasara.labelStyle, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.labelStyle, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.activationMode, "Activation Mode")
+                        @Html.EditorFor(model => model.ExportAsasara.activationMode, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.activationMode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.retailBarcodeType, "Retail Barcode Type")
+                        @Html.EditorFor(model => model.ExportAsasara.retailBarcodeType, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFCC99;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.retailBarcodeType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.partnerTextBox, "Partner")
+                        @Html.EditorFor(model => model.ExportAsasara.partnerTextBox, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.partnerTextBox, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @if (Model?.AsasaraDetails?.Integrator_Share == "BHN")
+                        {
+                            @Html.LabelFor(model => model.ExportAsasara.partnerCode, "Partner Code")
+                            @Html.EditorFor(model => model.ExportAsasara.partnerCode, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                            @Html.ValidationMessageFor(model => model.ExportAsasara.partnerCode, "", new { @class = "text-danger" })
+                        }
+                    </div>
+
+                    @if (Model?.AsasaraDetails?.Integrator_Share == "ePay")
+                    {
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAsasara.codeFormat, "Code Format")
+                            @Html.EditorFor(model => model.ExportAsasara.codeFormat, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                            @Html.ValidationMessageFor(model => model.ExportAsasara.codeFormat, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group custom-form-group">
+                            @Html.LabelFor(model => model.ExportAsasara.vasType, "VAS Type")
+                            @Html.EditorFor(model => model.ExportAsasara.vasType, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                            @Html.ValidationMessageFor(model => model.ExportAsasara.vasType, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.alternativePartNumber, "Alternative Part No")
+                        @Html.EditorFor(model => model.ExportAsasara.alternativePartNumber, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.alternativePartNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.pinFile, "Pin File ID")
+                        @Html.EditorFor(model => model.ExportAsasara.pinFile, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#99FFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.pinFile, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.WCTPinFile, "WTC Pin File ID")
+                        @Html.EditorFor(model => model.ExportAsasara.WCTPinFile, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#99FFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.WCTPinFile, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.comments, "Comments")
+                        @Html.EditorFor(model => model.ExportAsasara.comments, new { htmlAttributes = new { @class = "form-control custom-form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.comments, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.partnerCode, "Partner Code")
+                        @Html.EditorFor(model => model.ExportAsasara.partnerCode, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.partnerCode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.brand, "Brand")
+                        @Html.EditorFor(model => model.ExportAsasara.brand, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.brand, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.VASBoxDescription, "VAS Box Desc")
+                        @Html.EditorFor(model => model.ExportAsasara.VASBoxDescription, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.VASBoxDescription, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        @Html.LabelFor(model => model.ExportAsasara.VASPackDescription, "VAS Pack Desc")
+                        @Html.EditorFor(model => model.ExportAsasara.VASPackDescription, new { htmlAttributes = new { @class = "form-control custom-form-control", style = "background-color:#FFFFCC;" } })
+                        @Html.ValidationMessageFor(model => model.ExportAsasara.VASPackDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+<style>
+    .custom-form-group {
+        margin-bottom: 15px;
+    }
+
+    .custom-form-control {
+        width: 90%; /* Adjust the width to make the inputs narrower */
+    }
+
+    .custom-form-control-DLC {
+        width: 150%; /* Adjust the width to make the inputs narrower */
+        margin-right: 10px; /* Add space between adjacent text boxes */
+    }
+
+    .form-horizontal .col-md-2 {
+        padding-right: 10px; /* Add space between columns */
+    }
+
+    .grid-container1 {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+</style>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

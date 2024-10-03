@@ -136,6 +136,8 @@ C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\rosl
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\Antlr3.Runtime.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\EntityFramework.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\EntityFramework.SqlServer.dll
+C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.DataSet.dll
+C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\Newtonsoft.Json.dll
@@ -149,6 +151,10 @@ C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\Syst
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\WebGrease.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\EntityFramework.xml
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\EntityFramework.SqlServer.xml
+C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.pdb
+C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.xml
+C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.DataSet.pdb
+C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.DataSet.xml
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\System.Web.Helpers.xml
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\System.Web.Mvc.xml
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\System.Web.Optimization.xml
@@ -164,9 +170,92 @@ C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\obj\Debu
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\obj\Debug\SPV-Loader.csproj.Up2Date
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\obj\Debug\SPV-Loader.dll
 C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\obj\Debug\SPV-Loader.pdb
-C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.DataSet.dll
-C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.dll
-C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.pdb
-C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.xml
-C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.DataSet.pdb
-C:\Users\declan.enright\Documents\SOFTWARE PROJECTS\Apps WEB\SPV-Loader\bin\ExcelDataReader.DataSet.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\SPV-Loader.dll.config
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\SPV-Loader.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\SPV-Loader.pdb
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\csc.exe
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\csc.exe.config
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\csc.rsp
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\csi.exe
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\csi.exe.config
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\csi.rsp
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.Managed.Core.targets
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.AppContext.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Collections.Immutable.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Console.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Globalization.Calendars.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.IO.Compression.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.IO.FileSystem.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Net.Http.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Net.Sockets.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Reflection.Metadata.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.ValueTuple.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Xml.XmlDocument.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Xml.XPath.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\vbc.exe
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\vbc.exe.config
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\vbc.rsp
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\VBCSCompiler.exe
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\roslyn\VBCSCompiler.exe.config
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Antlr3.Runtime.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\EntityFramework.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\EntityFramework.SqlServer.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\ExcelDataReader.DataSet.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\ExcelDataReader.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Microsoft.Web.Infrastructure.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Newtonsoft.Json.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Helpers.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Mvc.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Optimization.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Razor.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.WebPages.Deployment.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.WebPages.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.WebPages.Razor.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\WebGrease.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\EntityFramework.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\EntityFramework.SqlServer.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\ExcelDataReader.pdb
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\ExcelDataReader.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\ExcelDataReader.DataSet.pdb
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\ExcelDataReader.DataSet.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Helpers.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Mvc.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Optimization.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.Razor.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.WebPages.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.WebPages.Deployment.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\System.Web.WebPages.Razor.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Newtonsoft.Json.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Antlr3.Runtime.pdb
+C:\PROJECTS\Apps-WEB\SPV-Loader\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\PROJECTS\Apps-WEB\SPV-Loader\obj\Debug\SPV-Loader.csproj.AssemblyReference.cache
+C:\PROJECTS\Apps-WEB\SPV-Loader\obj\Debug\SPV-Loader.csproj.CoreCompileInputs.cache
+C:\PROJECTS\Apps-WEB\SPV-Loader\obj\Debug\SPV-Loader.csproj.CopyComplete
+C:\PROJECTS\Apps-WEB\SPV-Loader\obj\Debug\SPV-Loader.dll
+C:\PROJECTS\Apps-WEB\SPV-Loader\obj\Debug\SPV-Loader.pdb

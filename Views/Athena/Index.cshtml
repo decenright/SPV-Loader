@@ -1,5 +1,5 @@
 ﻿@model SPV_Loader.Models.AthenaViewModel
-
+@using System.Linq
 @{
     ViewBag.Title = "Index";
 
@@ -8,7 +8,11 @@
     {
         isProcessingCompleted = true;
     }
-    WebGrid grid = new WebGrid(Model.AthenaList, canPage: false);
+
+    int currentIndex = ViewBag.CurrentIndex != null ? (int)ViewBag.CurrentIndex : 0;
+
+    // Using LINQ Count() for IEnumerable
+    var athenaList = Model.AthenaList.ToList(); // Converts to a List for easier access if needed
 }
 
 
@@ -102,7 +106,7 @@
                             <input type="file" name="postedFile" />
                         </td>
                         <td>
-                            <input type="submit" id="btn_Upload" value="Upload" aria-label="Load" />
+                            <input type="submit" id="btn_Upload" value="LOAD" aria-label="Load" class="btn btn-success" />
                         </td>
                         <td>
                             @Html.ValidationSummary()
@@ -142,7 +146,7 @@
                                 <input type="file" name="postedFile" />
                             </td>
                             <td>
-                                <input type="submit" id="btn_Upload_Intel" value="Upload" aria-label="Load" />
+                                <input type="submit" id="btn_Upload_Intel" value="LOAD" aria-label="Load" class="btn btn-success" />
                             </td>
                             <td>
                                 @Html.ValidationSummary()
@@ -171,7 +175,7 @@
                                 <input type="file" name="postedFile" />
                             </td>
                             <td>
-                                <input type="submit" id="btn_Upload_DLC" value="Upload" aria-label="Load" />
+                                <input type="submit" id="btn_Upload_DLC" value="LOAD" aria-label="Load" class="btn btn-success"/>
                             </td>
                             <td>
                                 @Html.ValidationSummary()
@@ -272,49 +276,73 @@
             <input type="button" style="float:left" value="Clear All" onclick="location.href='@Url.Action("New", "Athena")'" />
         </div>
     </div>
+    <br />
+    <div class="table-container">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th style="min-width: 50px; white-space: nowrap; width: 50px">Id</th>
+                    <th style="min-width: 50px; white-space: nowrap; width: 70px">Line</th>
+                    <th style="min-width: 100px; white-space: nowrap; width: 70px">Job</th>
+                    <th style="min-width: 100px; white-space: nowrap; width: 80px">Job Qty</th>
+                    <th style="min-width: 150px; white-space: nowrap; width: 140px">Customer</th>
+                    <th style="min-width: 150px; white-space: nowrap; width: 220px">Product Type</th>
+                    <th style="min-width: 120px; white-space: nowrap; width: 200px">Sku</th>
+                    <th style="min-width: 120px; white-space: nowrap; width: 100px">ERP</th>
+                    <th style="min-width: 120px; white-space: nowrap; width: 100px">ASCM Id</th>
+                    <th style="min-width: 120px; white-space: nowrap; width: 150px">Due Date</th>
+                    <th style="min-width: 150px; white-space: nowrap; width: 100px">PO</th>
+                    <th style="min-width: 100px; white-space: nowrap; width: 70px">SO</th>
+                    <th style="min-width: 100px; white-space: nowrap; width: 130px">Customer Code</th>
+                    <th style="min-width: 100px; white-space: nowrap; width: 100px">Activation</th>
+                    <th style="min-width: 100px; white-space: nowrap; width: 130px">Part Id</th>
+                    <th style="min-width: 150px; white-space: nowrap; width: 140px">Activation Type</th>
+                    <th style="min-width: 150px; white-space: nowrap; width: 130px">Retail Barcode</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < athenaList.Count(); i++) // Loop through the first 4 rows
+                {
+                    var item = athenaList[i];
 
+                    // Ensure isHighlighted is comparing integer types correctly
+                    var isHighlighted = i == currentIndex;
 
-<br />
+                    // Apply a class or inline style to the current row based on the condition
+                    string rowStyle = isHighlighted ? "background-color: #90EE90;" : "";
 
-    <div class="webgrid-container">
-        @grid.GetHtml(
-            tableStyle: "webgrid-table",
-            fillEmptyRows: false,
-            headerStyle: "webgrid-header",
-            alternatingRowStyle: "webgrid-alternating-row",
-            selectedRowStyle: "select",
-            footerStyle: "grid-footer",
-            mode: WebGridPagerModes.All,
-            firstText: "<< First",
-            previousText: "< Prev",
-            nextText: "Next >",
-            lastText: "Last >>",
-            columns: new[]
-            {
-                grid.Column("Id","Id", canSort: false),
-                grid.Column("JobNumber","Job", canSort: false),
-                grid.Column("DueDate","Due Date", canSort: false, style: "noWrap"),
-                grid.Column("PurchaseOrderNumber","PO", canSort: false),
-                grid.Column("PurchaseOrderLine","Line", canSort: false),
-                grid.Column("SalesOrderNumber","SO", canSort: false),
-                grid.Column("CustomerAccountCode","Customer", canSort: false),
-                grid.Column("JobQuantity","Job Qty", canSort: false),
-                grid.Column("ASCMOrderId","ASCM Id", canSort: false),
-                grid.Column("EndCustomer","Customer", canSort: false),
-                grid.Column("ActivationSystem","Activation", canSort: false),
-                grid.Column("ProductType","Product", canSort: false),
-                grid.Column("ErpMaterialCode","ERP", canSort: false),
-                grid.Column("IntegratorPartId","Part Id", canSort: false),
-                grid.Column("ActivationType","Activation Type", canSort: false),
-                grid.Column("PartNumberSku","Sku", canSort: false, style: "noWrap"),
-                grid.Column("RetailBarcode","Retail Barcode", canSort: false),
-            })
+                    // Assign an ID to each row to keep it in focus
+                    string rowId = $"row-{i}";
+
+                    <tr id="@rowId" style="@rowStyle">
+                        <td>@item.Id</td>
+                        <td>@item.PurchaseOrderLine</td>
+                        <td>@item.JobNumber</td>
+                        <td>@item.JobQuantity</td>
+                        <td>@item.EndCustomer</td>
+                        <td>@item.ProductType</td>
+                        <td>@item.PartNumberSku</td>
+                        <td>@item.ErpMaterialCode</td>
+                        <td>@item.AscmOrderId</td>
+                        <td>@item.DueDate.ToString()</td>
+                        <td>@item.PurchaseOrderNumber</td>
+                        <td>@item.SalesOrderNumber</td>
+                        <td>@item.CustomerAccountCode</td>
+                        <td>@item.ActivationSystem</td>
+                        <td>@item.IntegratorPartID</td>
+                        <td>@item.ActivationType</td>
+                        <td>@item.RetailBarcode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-<br />
-@Html.Partial("_AthenaJob", Model)
- }
- else
- {
+    <br />
+    @Html.Partial("_AthenaJob", Model)
+}
+else
+{
+    <br />
     <p>All items have been processed.</p>
     <form action="@Url.Action("Download", "Athena")" method="post">
         <input type="submit" value="Download XML" class="btn btn-primary" />
@@ -323,7 +351,7 @@
     <form action="@Url.Action("New")" method="post">
         <button class="btn btn-primary" type="submit">Process another job</button>
     </form>
- }
+}
 
 
 <script>
@@ -339,54 +367,32 @@
 </script>
 
 
-<style type="text/css">
-    .noWrap {
-        width: 100px; /* Fixed width for the column */
-        white-space: nowrap; /* Prevent text from wrapping */
-        overflow: hidden; /* Hide overflow text */
-        text-overflow: ellipsis; /* Show ellipsis when text overflows */
+<style>
+    /* Set the fixed height and make the table scrollable */
+    .table-container {
+        height: 150px; /* Adjust the height to your preference */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        border: 1px solid #ddd; /* Optional border to indicate the scrollable area */
     }
 
-    .webgrid-table {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-size: 1.2em;
-        width: 100%;
-        display: table;
-        border-collapse: separate;
-        border: solid 1px #8a6d3b;
-        background-color: white;
+    /* Make columns wider and prevent text wrapping */
+    th, td {
+        white-space: nowrap; /* Prevent wrapping */
     }
 
-        .webgrid-table td, th {
-            border: 1px solid #8a6d3b;
-            padding: 3px 7px 2px;
-        }
-
-    .webgrid-header {
-        background-color: steelblue;
-        color: #FFFFFF;
-        padding-bottom: 4px;
-        padding-top: 5px;
-        text-align: left;
+    /* Adjust specific columns */
+    th, td {
+        overflow: hidden;
+        text-overflow: ellipsis; /* Show ellipsis for overflowing content */
     }
 
-        .webgrid-header a {
-            color: white
-        }
-
-    .webgrid-row-style {
-        padding: 3px 7px 2px;
+    .table {
+        table-layout: fixed; /* Ensure the table is responsive */
     }
 
-    .webgrid-alternating-row {
-        background-color: #e6e0da;
-        padding: 3px 7px 2px;
-    }
-
-    .webgrid-container {
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Prevent text from wrapping */
-        width: 100%; /* Ensure it fills the width of its container */
+    /* Custom row highlighting */
+    tr[style*="background-color: yellow;"] {
+        background-color: yellow !important;
     }
 
     .grid-container {
@@ -406,266 +412,25 @@
         /* Adjust alignment for the info section */
         .grid-item.info-section {
             text-align: right;
-            float:right;
+            float: right;
         }
 </style>
 
+<script>
+    function scrollToHighlightedRow() {
+        var currentIndex = @currentIndex;
+        var highlightedRow = document.getElementById("row-" + currentIndex);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*using (Html.BeginForm("ImportOrder", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.IsDach)
-
-    <div class="grid-container">
-        <div class="grid-item">
-            <table>
-                <tr>
-                <tr>
-                    <td style="float:left">
-                        <h4><strong>Load Jobs XML file from Tharstern</strong></h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="file" name="postedFile" />
-                    </td>
-                    <td>
-                        <input type="submit" id="btn_Upload" value="Upload" aria-label="Load" />
-                    </td>
-                    <td>
-                        @Html.ValidationSummary()
-                        @TempData["errorMessage"]
-                    </td>
-                </tr>
-                <tr>
-                    @if (Model?.IsDach == false)
-                    {
-                        <td colspan="3">
-                            <div id="slider" style="width: 100px; margin-top: 20px;"></div>
-                            <input type="hidden" id="slider-value-input" name="sliderValue" />
-                            <p style="text-align: left; margin-top: 10px;"><span id="slider-value" style="display: inline-block;"></span></p>
-                        </td>
-                    }
-                </tr>
-            </table>
-        </div>
-        <div class="grid-item">
-            @if (Model?.AthenaDetails?.EndCustomer?.ToString().ToUpper() == "INTEL SECURITY")
-            {
-                using (Html.BeginForm("ImportIntel", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <table>
-                        <tr>
-                        <tr>
-                            <td style="float:left">
-                                <h4><strong>Load Intel Launch file</strong></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="file" name="postedFile1" />
-                            </td>
-                            <td>
-                                <input type="submit" id="btn_Upload_Intel" value="Upload" aria-label="Load" />
-                            </td>
-                            <td>
-                                @Html.ValidationSummary()
-                                @TempData["errorMessage"]
-                            </td>
-                        </tr>
-                    </table>
-                }
-            }
-            else if (Model?.AthenaDetails?.ActivationSystem?.ToString() == "DLC" || Model?.AthenaDetails?.ActivationSystem?.ToString() == "CR80")
-            {
-                using (Html.BeginForm("ImportDLC_CR80", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                    <table>
-                        <tr>
-                        <tr>
-                            <td style="float:left">
-                                <h4><strong>Load Excel File</strong></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="file" name="postedFile" />
-                            </td>
-                            <td>
-                                <input type="submit" id="btn_Upload_DLC_CR80" value="Upload" aria-label="Load" />
-                            </td>
-                            <td>
-                                @Html.ValidationSummary()
-                                @TempData["errorMessage"]
-                            </td>
-                        </tr>
-                    </table>
-                    }
-            }
-        </div>
-        <div class="grid-item">
-            <table>
-                <tr>
-                    <td>
-                        <p style="float:left"><strong>Integrator:</strong></p>
-                    </td>
-                    <td>
-                        <p  style="padding-left:5px">@TempData["IntegratorId"]</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p style="float:left"><strong>Channel:</strong></p>
-                    </td>
-                    <td>
-                        <p  style="padding-left:5px">@TempData["Channel"]</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p style="float:left"><strong>PO Line:</strong></p>
-                    </td>
-                    <td>
-                        <p  style="padding-left:5px">@TempData["POline"]</p>
-                    </td>
-                </tr>
-            </table>
-            <input type="button" style="float:left" value="Clear All" onclick="location.href='@Url.Action("New", "Athena")'" />
-        </div>
-
-    </div>
-    }*@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*@model SPV_Loader.Models.AthenaViewModel
-
-    @{
-        ViewBag.Title = "Index";
-        bool isProcessingCompleted = ViewBag.AllItemsProcessed ?? false;
-        WebGrid grid = new WebGrid(Model.AthenaList, canPage: false);
-    }
-
-    <h2><strong>ATHENA</strong></h2>
-
-    @if (!isProcessingCompleted)
-    {
-        using (Html.BeginForm("ImportOrder", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
-
-            <div>
-                <table>
-                    <tr>
-                        <td>
-                            <h4>Upload Order File</h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="file" name="postedFile" />
-                        </td>
-                        <td>
-                            <input type="submit" id="btn_Upload" value="Upload" aria-label="Load" />
-                        </td>
-                        <td>
-                            @Html.ValidationSummary()
-                            @TempData["errorMessage"]
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        if (highlightedRow) {
+            // Scroll to the highlighted row and ensure it is visible
+            highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-
-        <br />
-        <div class="webgrid-container">
-            <table class="table-responsive">
-                <tr>
-                    <td>
-                        @grid.GetHtml(
-                        tableStyle: "webgrid-table",
-                        fillEmptyRows: false,
-                        headerStyle: "webgrid-header",
-                        alternatingRowStyle: "webgrid-alternating-row",
-                        selectedRowStyle: "select",
-                        footerStyle: "grid-footer",
-                        mode: WebGridPagerModes.All,
-                        firstText: "<< First",
-                        previousText: "< Prev",
-                        nextText: "Next >",
-                        lastText: "Last >>",
-                        columns: new[]
-                        {
-                            grid.Column("JobNumber","Job", canSort: false),
-                            grid.Column("DueDate","Due Date", canSort: false, style: "noWrap"),
-                            grid.Column("PurchaseOrderNumber","PO", canSort: false),
-                            grid.Column("PurchaseOrderLine","Line", canSort: false),
-                            grid.Column("SalesOrderNumber","SO", canSort: false),
-                            grid.Column("CustomerAccountCode","PO", canSort: false),
-                            grid.Column("JobQuantity","Job Qty", canSort: false),
-                            grid.Column("ASCMOrderId","ASCM Id", canSort: false),
-                            grid.Column("EndCustomer","Customer", canSort: false),
-                            grid.Column("ActivationSystem","Activation", canSort: false),
-                            grid.Column("ProductType","Product", canSort: false),
-                            grid.Column("ErpMaterialCode","ERP", canSort: false),
-                            grid.Column("IntegratorPartId","Part Id", canSort: false),
-                            grid.Column("ActivationType","Activation Type", canSort: false),
-                            grid.Column("PartNumberSku","Sku", canSort: false, style: "noWrap"),
-                            grid.Column("RetailBarcode","Retail Barcode", canSort: false),
-                        })
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-    }
-    else
-    {
-        <p>All items have been processed.</p>
-        <form action="@Url.Action("Download", "Athena")" method="post">
-        </form>
     }
 
-    <hr />
-    @Html.Partial("_AthenaJob", Model)*@
+    // Call the function on page load
+    window.onload = scrollToHighlightedRow;
 
+    // Additionally, you can call scrollToHighlightedRow() whenever you change the highlighted row dynamically
+</script>
 
 

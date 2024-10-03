@@ -1,9 +1,371 @@
-﻿@model IEnumerable<SPV_Loader.Order>
+﻿@model SPV_Loader.Models.AsasaraViewModel
 
 @{
     ViewBag.Title = "Index";
+
+    bool isProcessingCompleted = false;
+    if (TempData["allItemsProcessed"] != null && (bool)TempData["allItemsProcessed"])
+    {
+        isProcessingCompleted = true;
+    }
+
+    int currentIndex = ViewBag.CurrentIndex != null ? (int)ViewBag.CurrentIndex : 0;
+
+    // Using LINQ Count() for IEnumerable
+    var asasaraList = Model.AsasaraList.ToList(); // Converts to a List for easier access if needed
+    var ordersList = Model.OrdersList.ToList();
 }
 
-<h2>Asasara</h2>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    function bs_input_file() {
+        $(".input-file").before(
+            function () {
+                if (!$(this).prev().hasClass('input-ghost')) {
+                    var element = $("<input type='file' id='dataFile' name='upload' class='input-ghost' style='visibility:hidden; height:0'>");
+                    element.attr("name", $(this).attr("name"));
+                    element.change(function () {
+                        element.next(element).find('input').val((element.val()).split('\\').pop());
+                    });
+                    $(this).find("button.btn-choose").click(function () {
+                        element.click();
+                    });
+                    $(this).find("button.btn-reset").click(function () {
+                        element.val(null);
+                        $(this).parents(".input-file").find('input').val('');
+                    });
+                    $(this).find('input').css("cursor", "pointer");
+                    $(this).find('input').mousedown(function () {
+                        $(this).parents('.input-file').prev().click();
+                        return false;
+                    });
+                    return element;
+                }
+            }
+        );
+    }
+
+    function clear() {
+        var input = $("#dataFile").val('');
+    };
+    $(function () {
+        clear();
+        bs_input_file();
+    });
+</script>
+
+@if (!isProcessingCompleted)
+{
+    <div class="grid-container">
+
+        <!-- ImportOrder -->
+        <div class="grid-item">
+            @using (Html.BeginForm("ImportOrderAsasara", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <table>
+                    <tr>
+                        <td style="float:left">
+                            <h4><strong>XML file from Tharstern</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="file" name="postedFile" />
+                        </td>
+                        <td>
+                            <input type="submit" id="btn_Upload" value="LOAD" aria-label="Load" class="btn btn-success" />
+                        </td>
+                        <td>
+                            @Html.ValidationSummary()
+                            @TempData["errorMessage"]
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+
+        <!-- ImportWorkInstructions -->
+        <div class="grid-item">
+            @using (Html.BeginForm("ImportWorkInstructionsAsasara", "ImportOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                if (Model.OrdersList.Count() > 0)
+                {
+                    <table>
+                        <tr>
+                            <td style="float:left">
+                                <h4><strong>OS Work Instructions</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="postedFile" />
+                            </td>
+                            <td>
+                                <input type="submit" id="btn_Upload" value="LOAD" aria-label="Load" class="btn btn-success" />
+                            </td>
+                            <td>
+                                @Html.ValidationSummary()
+                                @TempData["errorMessage"]
+                            </td>
+                        </tr>
+                    </table>
+                }
+            }
+        </div>
+        <!-- Clear Job -->
+        <div class="grid-item info-section">
+            <input type="button" style="float:left" value="Clear All" onclick="location.href='@Url.Action("New", "Asasara")'" />
+        </div>
+    </div>
+    <br />
+    if (Model.OrdersList.Count() > 0 && Model.AsasaraList.Count() > 0)
+    {
+        <div class="table-container">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th style="min-width: 50px; white-space: nowrap; width: 50px">Id</th>
+                        <th style="min-width: 50px; white-space: nowrap; width: 100px">Job Number</th>
+                        <th style="min-width: 100px; white-space: nowrap; width: 100px">Sales Order</th>
+                        <th style="min-width: 100px; white-space: nowrap; width: 80px">Build Qty</th>
+                        <th style="min-width: 150px; white-space: nowrap; width: 140px">Customer</th>
+                        <th style="min-width: 150px; white-space: nowrap; width: 280px">Part Number</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 70px">OCR</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 120px">Order-Os Link</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 250px">Campaign_ID</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 70px">MMYY</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 150px">Integrator_Share</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px">Identifier</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 80px">Country</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 170px">Production UPC</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 120px">Form_Factor</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 150px">Denomination</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 220px">Partner_Encoding_Type</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Internal_Activation</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 150px">Is_UPC_On_Card</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 170px">Google_FAI_Quantity</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 180px">Integrator_FAI_Quantity</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 280px">Test_Quantity_Production_Data_Proof</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 280px">Test_Quantity_Sandbox_Dev</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 750px">Ship_To_Location_Text</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 380px ">Ship_To_Location_Contact</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px ">Ship_To_Location_1_Test_Cards_Text</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 380px ">Ship_To_Location_1_Test_Cards_Contact</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px ">Ship_To_Location_2_Test_Cards_Text</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 380px ">Ship_To_Location_2_Test_Cards_Contact</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 130px ">Cards_Per_Pack</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 150px">Packs_Per_Carton</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 140px">Cards_Per_Carton</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Pack_EAN</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Pallet_EAN</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Case_EAN</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Spec_Guide_Version</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Logistics_Guide_Version</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px">NAN___Shipping_PO___Product_Packing_Label</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px">BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px">BHN_Pack_Description___Packing_UPC</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 450px">Packaging___Encoding_Identifier</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 200px">Label_Spec</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 250px">Outer_Box_Caption</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 300px">Is_Card_Import_File_Required</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 300px">Is_Card_Import_File_Required</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 300px">Is_Send_First_Box_To_BHN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < asasaraList.Count(); i++) // Loop through the first 4 rows
+                    {
+                        var item = asasaraList[i];
+
+                        // Ensure isHighlighted is comparing integer types correctly
+                        var isHighlighted = i == currentIndex;
+
+                        // Apply a class or inline style to the current row based on the condition
+                        string rowStyle = isHighlighted ? "background-color: #90EE90;" : "";
+
+                        // Assign an ID to each row to keep it in focus
+                        string rowId = $"row-{i}";
+
+                        <tr id="@rowId" style="@rowStyle">
+                            <td>@item.Id</td>
+                            <td>@item.JobNumber</td>
+                            <td>@item.SalesOrder</td>
+                            <td>@item.BuildQty</td>
+                            <td>@item.CustomerAccountCode</td>
+                            <td>@item.PartNumber</td>
+                            <td>@item.OCR</td>
+                            <td>@item.OrderOsLink</td>
+                            <td>@item.Campaign_ID</td>
+                            <td>@item.MMYY</td>
+                            <td>@item.Integrator_Share</td>
+                            <td>@item.Identifier</td>
+                            <td>@item.Country</td>
+                            <td>@item.Production_UPC</td>
+                            <td>@item.Form_Factor</td>
+                            <td>@item.Denomination</td>
+                            <td>@item.Partner_Encoding_Type</td>
+                            <td>@item.Internal_Activation</td>
+                            <td>@item.Is_UPC_On_Card</td>
+                            <td>@item.Google_FAI_Quantity</td>
+                            <td>@item.Integrator_FAI_Quantity</td>
+                            <td>@item.Test_Quantity_Production_Data_Proof</td>
+                            <td>@item.Test_Quantity_Sandbox_Dev</td>
+                            <td>@item.Ship_To_Location_Text</td>
+                            <td>@item.Ship_To_Location_Contact</td>
+                            <td>@item.Ship_To_Location_1_Test_Cards_Text</td>
+                            <td>@item.Ship_To_Location_1_Test_Cards_Contact</td>
+                            <td>@item.Ship_To_Location_2_Test_Cards_Text</td>
+                            <td>@item.Ship_To_Location_2_Test_Cards_Contact</td>
+                            <td>@item.Cards_Per_Pack</td>
+                            <td>@item.Packs_Per_Carton</td>
+                            <td>@item.Cards_Per_Carton</td>
+                            <td>@item.Pack_EAN</td>
+                            <td>@item.Pallet_EAN</td>
+                            <td>@item.Case_EAN</td>
+                            <td>@item.Spec_Guide_Version</td>
+                            <td>@item.Logistics_Guide_Version</td>
+                            <td>@item.NAN___Shipping_PO___Product_Packing_Label</td>
+                            <td>@item.BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number</td>
+                            <td>@item.BHN_Pack_Description___Packing_UPC</td>
+                            <td>@item.Packaging___Encoding_Identifier</td>
+                            <td>@item.Label_Spec</td>
+                            <td>@item.Outer_Box_Caption</td>
+                            <td>@item.Is_Card_Import_File_Required</td>
+                            <td>@item.Is_Card_Import_File_Required</td>
+                            <td>@item.Is_Send_First_Box_To_BHN</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (Model.OrdersList.Count() > 0)
+    {
+        <div class="table-container">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th style="min-width: 50px; white-space: nowrap; width: 100px">Job Number</th>
+                        <th style="min-width: 100px; white-space: nowrap; width: 100px">Sales Order</th>
+                        <th style="min-width: 100px; white-space: nowrap; width: 80px">Build Qty</th>
+                        <th style="min-width: 150px; white-space: nowrap; width: 140px">Customer</th>
+                        <th style="min-width: 150px; white-space: nowrap; width: 280px">Part Number</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 70px">OCR</th>
+                        <th style="min-width: 120px; white-space: nowrap; width: 120px">Order-Os Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < ordersList.Count(); i++) // Loop through the first 4 rows
+                    {
+                        var item = ordersList[i];
+
+                        // Ensure isHighlighted is comparing integer types correctly
+                        var isHighlighted = i == currentIndex;
+
+                        // Apply a class or inline style to the current row based on the condition
+                        string rowStyle = isHighlighted ? "background-color: #90EE90;" : "";
+
+                        <tr style="@rowStyle">
+                            <td>@item.JobNumber</td>
+                            <td>@item.SalesOrder</td>
+                            <td>@item.BuildQty</td>
+                            <td>@item.CustomerAccountCode</td>
+                            <td>@item.PartNumber</td>
+                            <td>@item.OCR</td>
+                            <td>@item.OrderOsLink</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    <br />
+    @Html.Partial("_AsasaraJob", Model)
+}
+else
+{
+    <br />
+    <p>All items have been processed.</p>
+    <form action="@Url.Action("Download", "Asasara")" method="post">
+        <input type="submit" value="Download XML" class="btn btn-primary" />
+    </form>
+    <br />
+    <form action="@Url.Action("New")" method="post">
+        <button class="btn btn-primary" type="submit">Process another job</button>
+    </form>
+}
+
+
+<style>
+    /* Set the fixed height and make the table scrollable */
+    .table-container {
+        height: 150px; /* Adjust the height to your preference */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        border: 1px solid #ddd; /* Optional border to indicate the scrollable area */
+    }
+
+    /* Make columns wider and prevent text wrapping */
+    th, td {
+        white-space: nowrap; /* Prevent wrapping */
+    }
+
+    /* Adjust specific columns */
+    th, td {
+        overflow: hidden;
+        text-overflow: ellipsis; /* Show ellipsis for overflowing content */
+    }
+
+    .table {
+        table-layout: fixed; /* Ensure the table is responsive */
+    }
+
+    /* Custom row highlighting */
+    tr[style*="background-color: yellow;"] {
+        background-color: yellow !important;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+        gap: 20px; /* Space between columns */
+        align-items: start; /* Align items at the top */
+        background-color: lightblue;
+    }
+
+    .grid-item {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: left;
+    }
+
+        /* Adjust alignment for the info section */
+        .grid-item.info-section {
+            text-align: right;
+            float: right;
+        }
+</style>
+
+<script>
+    function scrollToHighlightedRow() {
+        var currentIndex = @currentIndex;
+        var highlightedRow = document.getElementById("row-" + currentIndex);
+
+        if (highlightedRow) {
+            // Scroll to the highlighted row and ensure it is visible
+            highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    // Call the function on page load
+    window.onload = scrollToHighlightedRow;
+
+    // Additionally, you can call scrollToHighlightedRow() whenever you change the highlighted row dynamically
+</script>
 
 

@@ -10,12 +10,11 @@
     <Property Name="DataTemplatePath" Type="varchar(max)" />
     <Property Name="PptTemplatePath" Type="varchar(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'SpvLoader.dbo.AsasaraJobs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="AsasaraJobs">
     <Key>
-      <PropertyRef Name="OrderOsLink" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderOsLink" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="JobNumber" Type="int" />
     <Property Name="SalesOrder" Type="int" />
@@ -171,6 +170,64 @@ warning 6002: The table/view 'SpvLoader.dbo.AsasaraJobs' does not have a primary
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IsDachOrder" Type="bit" />
   </EntityType>
+  <EntityType Name="ExportAsasara">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderID" Type="varchar" MaxLength="50" />
+    <Property Name="jobID" Type="varchar" MaxLength="50" />
+    <Property Name="jobQty" Type="varchar" MaxLength="50" />
+    <Property Name="integratorName" Type="varchar" MaxLength="50" />
+    <Property Name="activationType" Type="varchar" MaxLength="50" />
+    <Property Name="regionID" Type="varchar(max)" />
+    <Property Name="pptQty" Type="varchar" MaxLength="50" />
+    <Property Name="denomination" Type="varchar" MaxLength="50" />
+    <Property Name="currency" Type="varchar" MaxLength="50" />
+    <Property Name="retailBarcode" Type="varchar" MaxLength="50" />
+    <Property Name="customerJobNumber" Type="varchar" MaxLength="50" />
+    <Property Name="integratorID" Type="varchar" MaxLength="50" />
+    <Property Name="productDescription" Type="varchar(max)" />
+    <Property Name="maskID" Type="varchar" MaxLength="50" />
+    <Property Name="dummyRecords" Type="varchar" MaxLength="50" />
+    <Property Name="dummyRecordsCount" Type="varchar" MaxLength="50" />
+    <Property Name="dummyRecordsEvery" Type="varchar" MaxLength="50" />
+    <Property Name="packQty" Type="varchar" MaxLength="50" />
+    <Property Name="caseQty" Type="varchar" MaxLength="50" />
+    <Property Name="palletQty" Type="varchar" MaxLength="50" />
+    <Property Name="expiryDate" Type="varchar" MaxLength="50" />
+    <Property Name="whiteCardTestQty" Type="varchar" MaxLength="50" />
+    <Property Name="retailBarcodeType" Type="varchar" MaxLength="50" />
+    <Property Name="barcodeStyleType" Type="varchar" MaxLength="50" />
+    <Property Name="alternativePartNumber" Type="varchar" MaxLength="50" />
+    <Property Name="country" Type="varchar" MaxLength="50" />
+    <Property Name="eanBundle" Type="varchar" MaxLength="50" />
+    <Property Name="eanBox" Type="varchar" MaxLength="50" />
+    <Property Name="DODHumanFontTypeID" Type="varchar" MaxLength="50" />
+    <Property Name="partnerTextBox" Type="varchar" MaxLength="50" />
+    <Property Name="partnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="VASBoxDescription" Type="varchar" MaxLength="50" />
+    <Property Name="palletTypeID" Type="varchar" MaxLength="50" />
+    <Property Name="comments" Type="varchar(max)" />
+    <Property Name="recipientAddress1" Type="varchar(max)" />
+    <Property Name="recipientAddress2" Type="varchar(max)" />
+    <Property Name="recipientAddress3" Type="varchar(max)" />
+    <Property Name="recipientAddress4" Type="varchar(max)" />
+    <Property Name="recipientAddress5" Type="varchar(max)" />
+    <Property Name="recipientAddress6" Type="varchar(max)" />
+    <Property Name="codeFormat" Type="varchar" MaxLength="50" />
+    <Property Name="vasType" Type="varchar" MaxLength="50" />
+    <Property Name="FAIQty" Type="varchar" MaxLength="50" />
+    <Property Name="OCR" Type="varchar" MaxLength="50" />
+    <Property Name="VASPackDescription" Type="varchar" MaxLength="50" />
+    <Property Name="labelStyle" Type="varchar" MaxLength="50" />
+    <Property Name="activationMode" Type="varchar" MaxLength="50" />
+    <Property Name="pinFile" Type="varchar" MaxLength="50" />
+    <Property Name="WCTPinFile" Type="varchar" MaxLength="50" />
+    <Property Name="eanPallet" Type="varchar" MaxLength="50" />
+    <Property Name="BHNPONumber" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="ExportAthena">
     <Key>
       <PropertyRef Name="Id" />
@@ -298,69 +355,15 @@ warning 6002: The table/view 'SpvLoader.dbo.Asasara_Order_WorkInstructions' does
   </EntityType>
   <EntityContainer Name="SpvLoaderModelStoreContainer">
     <EntitySet Name="AsasaraActivationType" EntityType="Self.AsasaraActivationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsasaraJobs" EntityType="Self.AsasaraJobs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AsasaraRegionLookup" EntityType="Self.AsasaraRegionLookup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AsasaraWorkInstructions" EntityType="Self.AsasaraWorkInstructions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AthenaJobs" EntityType="Self.AthenaJobs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BHNWorkInstructions" EntityType="Self.BHNWorkInstructions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dach" EntityType="Self.Dach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExportAsasara" EntityType="Self.ExportAsasara" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExportAthena" EntityType="Self.ExportAthena" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AsasaraJobs" EntityType="Self.AsasaraJobs" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [AsasaraJobs].[OrderOsLink] AS [OrderOsLink], 
-    [AsasaraJobs].[JobNumber] AS [JobNumber], 
-    [AsasaraJobs].[SalesOrder] AS [SalesOrder], 
-    [AsasaraJobs].[BuildQty] AS [BuildQty], 
-    [AsasaraJobs].[CustomerAccountCode] AS [CustomerAccountCode], 
-    [AsasaraJobs].[PartNumber] AS [PartNumber], 
-    [AsasaraJobs].[OCR] AS [OCR], 
-    [AsasaraJobs].[Campaign ID] AS [Campaign ID], 
-    [AsasaraJobs].[Project ID] AS [Project ID], 
-    [AsasaraJobs].[MMYY] AS [MMYY], 
-    [AsasaraJobs].[Integrator Share] AS [Integrator Share], 
-    [AsasaraJobs].[Printer Share] AS [Printer Share], 
-    [AsasaraJobs].[Identifier] AS [Identifier], 
-    [AsasaraJobs].[Line Description] AS [Line Description], 
-    [AsasaraJobs].[Country] AS [Country], 
-    [AsasaraJobs].[Integrator Product ID] AS [Integrator Product ID], 
-    [AsasaraJobs].[Quantity] AS [Quantity], 
-    [AsasaraJobs].[In DC Date] AS [In DC Date], 
-    [AsasaraJobs].[Production UPC] AS [Production UPC], 
-    [AsasaraJobs].[Form Factor] AS [Form Factor], 
-    [AsasaraJobs].[Denomination] AS [Denomination], 
-    [AsasaraJobs].[Partner Encoding Type] AS [Partner Encoding Type], 
-    [AsasaraJobs].[Internal Activation] AS [Internal Activation], 
-    [AsasaraJobs].[Production Run group] AS [Production Run group], 
-    [AsasaraJobs].[Is UPC On Card] AS [Is UPC On Card], 
-    [AsasaraJobs].[Is Reprint] AS [Is Reprint], 
-    [AsasaraJobs].[Google FAI Quantity] AS [Google FAI Quantity], 
-    [AsasaraJobs].[Integrator FAI Quantity] AS [Integrator FAI Quantity], 
-    [AsasaraJobs].[Test Quantity Production Data Proof] AS [Test Quantity Production Data Proof], 
-    [AsasaraJobs].[Test Quantity Sandbox Dev] AS [Test Quantity Sandbox Dev], 
-    [AsasaraJobs].[Ship To Location Text] AS [Ship To Location Text], 
-    [AsasaraJobs].[Ship To Location Contact] AS [Ship To Location Contact], 
-    [AsasaraJobs].[Ship To Location 1 Test Cards Text] AS [Ship To Location 1 Test Cards Text], 
-    [AsasaraJobs].[Ship To Location 1 Test Cards Contact] AS [Ship To Location 1 Test Cards Contact], 
-    [AsasaraJobs].[Ship To Location 2 Test Cards Text] AS [Ship To Location 2 Test Cards Text], 
-    [AsasaraJobs].[Ship To Location 2 Test Cards Contact] AS [Ship To Location 2 Test Cards Contact], 
-    [AsasaraJobs].[Cards Per Pack] AS [Cards Per Pack], 
-    [AsasaraJobs].[Packs Per Carton] AS [Packs Per Carton], 
-    [AsasaraJobs].[Cards Per Carton] AS [Cards Per Carton], 
-    [AsasaraJobs].[Pack EAN] AS [Pack EAN], 
-    [AsasaraJobs].[Pallet EAN] AS [Pallet EAN], 
-    [AsasaraJobs].[Case EAN] AS [Case EAN], 
-    [AsasaraJobs].[Spec Guide Version] AS [Spec Guide Version], 
-    [AsasaraJobs].[Logistics Guide Version] AS [Logistics Guide Version], 
-    [AsasaraJobs].[NAN - Shipping PO - Product Packing Label] AS [NAN - Shipping PO - Product Packing Label], 
-    [AsasaraJobs].[BHN Brand Code - BHN 1st Case Quantity - PID Number] AS [BHN Brand Code - BHN 1st Case Quantity - PID Number], 
-    [AsasaraJobs].[BHN Pack Description - Packing UPC] AS [BHN Pack Description - Packing UPC], 
-    [AsasaraJobs].[Packaging - Encoding Identifier] AS [Packaging - Encoding Identifier], 
-    [AsasaraJobs].[Label Spec] AS [Label Spec], 
-    [AsasaraJobs].[Outer Box Caption] AS [Outer Box Caption], 
-    [AsasaraJobs].[Is Card Import File Required] AS [Is Card Import File Required], 
-    [AsasaraJobs].[Is Send First Box To BHN] AS [Is Send First Box To BHN]
-    FROM [dbo].[AsasaraJobs] AS [AsasaraJobs]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="Asasara_Order_WorkInstructions" EntityType="Self.Asasara_Order_WorkInstructions" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Asasara_Order_WorkInstructions].[OrderOsLink] AS [OrderOsLink], 

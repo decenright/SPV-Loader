@@ -159,11 +159,18 @@
       <DependentUpon>SpvLoader.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AsasaraController.cs" />
+    <Compile Include="Controllers\AsasaraProcessBHNController.cs" />
+    <Compile Include="Controllers\AsasaraProcessEPYController.cs" />
+    <Compile Include="Controllers\AsasaraProcessINCController.cs" />
     <Compile Include="Controllers\AthenaController.cs" />
     <Compile Include="Controllers\AthenaProcessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportOrderController.cs" />
+    <Compile Include="Currency.cs" />
     <Compile Include="Dach.cs">
+      <DependentUpon>SpvLoader.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExportAsasara.cs">
       <DependentUpon>SpvLoader.tt</DependentUpon>
     </Compile>
     <Compile Include="ExportAthena.cs">
@@ -172,6 +179,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AsasaraViewModel.cs" />
     <Compile Include="Models\AthenaViewModel.cs" />
     <Compile Include="Models\BlackhawkModel.cs" />
     <Compile Include="Models\DLCModel.cs" />
@@ -229,8 +237,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="SpvLoader.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SpvLoader.Context.cs</LastGenOutput>
       <DependentUpon>SpvLoader.edmx</DependentUpon>
+      <LastGenOutput>SpvLoader.Context.cs</LastGenOutput>
     </Content>
     <Content Include="SpvLoader.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -249,6 +257,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Athena\Index.cshtml" />
+    <Content Include="Views\Athena\_AthenaJob.cshtml" />
+    <Content Include="Views\Athena\ErrorDLC.cshtml" />
     <EntityDeploy Include="SpvLoader.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SpvLoader.Designer.cs</LastGenOutput>
@@ -257,12 +268,12 @@
       <DependentUpon>SpvLoader.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Asasara\Index.cshtml" />
-    <Content Include="Views\Athena\Index.cshtml" />
-    <Content Include="Views\Athena\_AthenaJob.cshtml" />
-    <Content Include="Views\Athena\ErrorDLC.cshtml" />
+    <Content Include="Views\Asasara\CheckNewRegion.cshtml" />
+    <Content Include="Views\Asasara\_AsasaraJob.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AsasaraProcessINC\" />
     <Folder Include="Views\AthenaProcess\" />
     <Folder Include="Views\ImportOrder\" />
   </ItemGroup>

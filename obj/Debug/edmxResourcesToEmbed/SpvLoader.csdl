@@ -10,6 +10,64 @@
     <Property Name="DataTemplatePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PptTemplatePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="AsasaraJob">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderOsLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JobNumber" Type="Int32" />
+    <Property Name="SalesOrder" Type="Int32" />
+    <Property Name="BuildQty" Type="Int32" />
+    <Property Name="CustomerAccountCode" Type="Int32" />
+    <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Campaign_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Project_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MMYY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Integrator_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Printer_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Identifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Line_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Integrator_Product_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="In_DC_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Production_UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Form_Factor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Partner_Encoding_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Internal_Activation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Production_Run_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Is_UPC_On_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Reprint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Google_FAI_Quantity" Type="Int32" />
+    <Property Name="Integrator_FAI_Quantity" Type="Int32" />
+    <Property Name="Test_Quantity_Production_Data_Proof" Type="Int32" />
+    <Property Name="Test_Quantity_Sandbox_Dev" Type="Int32" />
+    <Property Name="Ship_To_Location_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ship_To_Location_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ship_To_Location_1_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ship_To_Location_1_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ship_To_Location_2_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ship_To_Location_2_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cards_Per_Pack" Type="Int32" />
+    <Property Name="Packs_Per_Carton" Type="Int32" />
+    <Property Name="Cards_Per_Carton" Type="Int32" />
+    <Property Name="Pack_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pallet_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Case_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Spec_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logistics_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NAN___Shipping_PO___Product_Packing_Label" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BHN_Pack_Description___Packing_UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Packaging___Encoding_Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Label_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Outer_Box_Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Card_Import_File_Required" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Send_First_Box_To_BHN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="AsasaraRegionLookup">
     <Key>
       <PropertyRef Name="Id" />
@@ -76,7 +134,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="JobNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="DueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="PurchaseOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -105,6 +163,123 @@
     <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="Dach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsDachOrder" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ExportAsasara">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="jobID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="jobQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="integratorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="regionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pptQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="retailBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customerJobNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="integratorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="productDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="maskID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dummyRecords" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dummyRecordsCount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dummyRecordsEvery" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="packQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="caseQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="palletQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="expiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="whiteCardTestQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="retailBarcodeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="barcodeStyleType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alternativePartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="eanBundle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="eanBox" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DODHumanFontTypeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="partnerTextBox" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="partnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VASBoxDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="palletTypeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipientAddress1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipientAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipientAddress3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipientAddress4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipientAddress5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipientAddress6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="codeFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vasType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FAIQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VASPackDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="labelStyle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activationMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pinFile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WCTPinFile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="eanPallet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BHNPONumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ExportAthena">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PurchaseOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PurchaseOrderLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAccountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JobQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASCMOrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActivationSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ErpMaterialCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FAIStart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FAIEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContractTypeLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PartNumberSku" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JobComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="JobTypeLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SpecificationLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ArtworkPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PackQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BoxQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PalletQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IncommRetailer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IncommProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DenominationCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AlternativePartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PackagingGTIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BHNPONumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MSRequestNumber1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BOMComment1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PKPN1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MSRequestNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BOMComment2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PKPN2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MSRequestNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BOMComment3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PKPN3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MSRequestNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BOMComment4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PKPN4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MSRequestNumber5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BOMComment5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PKPN5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="ID" />
@@ -118,74 +293,18 @@
     <Property Name="OrderOsLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="AsasaraJob">
-    <Key>
-      <PropertyRef Name="OrderOsLink" />
-    </Key>
-    <Property Name="OrderOsLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="JobNumber" Type="Int32" />
-    <Property Name="SalesOrder" Type="Int32" />
-    <Property Name="BuildQty" Type="Int32" />
-    <Property Name="CustomerAccountCode" Type="Int32" />
-    <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="OCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Campaign_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Project_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MMYY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Integrator_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Printer_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Identifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Line_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Integrator_Product_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="In_DC_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Production_UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Form_Factor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Partner_Encoding_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Internal_Activation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Production_Run_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Is_UPC_On_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Is_Reprint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Google_FAI_Quantity" Type="Int32" />
-    <Property Name="Integrator_FAI_Quantity" Type="Int32" />
-    <Property Name="Test_Quantity_Production_Data_Proof" Type="Int32" />
-    <Property Name="Test_Quantity_Sandbox_Dev" Type="Int32" />
-    <Property Name="Ship_To_Location_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Ship_To_Location_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Ship_To_Location_1_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Ship_To_Location_1_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Ship_To_Location_2_Test_Cards_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Ship_To_Location_2_Test_Cards_Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Cards_Per_Pack" Type="Int32" />
-    <Property Name="Packs_Per_Carton" Type="Int32" />
-    <Property Name="Cards_Per_Carton" Type="Int32" />
-    <Property Name="Pack_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Pallet_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Case_EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Spec_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Logistics_Guide_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NAN___Shipping_PO___Product_Packing_Label" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="BHN_Brand_Code___BHN_1st_Case_Quantity___PID_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="BHN_Pack_Description___Packing_UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Packaging___Encoding_Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Label_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Outer_Box_Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Is_Card_Import_File_Required" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Is_Send_First_Box_To_BHN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityContainer Name="SpvLoaderEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AsasaraActivationTypes" EntityType="Self.AsasaraActivationType" />
+    <EntitySet Name="AsasaraJobs" EntityType="Self.AsasaraJob" />
     <EntitySet Name="AsasaraRegionLookups" EntityType="Self.AsasaraRegionLookup" />
     <EntitySet Name="AsasaraWorkInstructions" EntityType="Self.AsasaraWorkInstruction" />
     <EntitySet Name="AthenaJobs" EntityType="Self.AthenaJob" />
     <EntitySet Name="BHNWorkInstructions" EntityType="Self.BHNWorkInstruction" />
+    <EntitySet Name="Daches" EntityType="Self.Dach" />
+    <EntitySet Name="ExportAsasaras" EntityType="Self.ExportAsasara" />
+    <EntitySet Name="ExportAthenas" EntityType="Self.ExportAthena" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
-    <EntitySet Name="AsasaraJobs" EntityType="Self.AsasaraJob" />
     <EntitySet Name="Asasara_Order_WorkInstructions" EntityType="SpvLoaderModel.Asasara_Order_WorkInstructions" />
-    <EntitySet Name="ExportAthenas" EntityType="SpvLoaderModel.ExportAthena" />
-    <EntitySet Name="Daches" EntityType="SpvLoaderModel.Dach" />
   </EntityContainer>
   <EntityType Name="Asasara_Order_WorkInstructions">
     <Key>
@@ -244,64 +363,5 @@
     <Property Name="Outer_Box_Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Is_Card_Import_File_Required" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Is_Send_First_Box_To_BHN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="ExportAthena">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="JobId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PurchaseOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PurchaseOrderLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerAccountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="JobQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ASCMOrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="EndCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ActivationSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ErpMaterialCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FAIStart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FAIEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ContractTypeLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PartNumberSku" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="JobComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="JobTypeLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="SpecificationLVId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ArtworkPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PackQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BoxQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PalletQty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="IncommRetailer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="IncommProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Denomination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DenominationCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="AlternativePartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PackagingGTIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BHNPONumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MSRequestNumber1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BOMComment1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PKPN1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MSRequestNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BOMComment2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PKPN2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MSRequestNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BOMComment3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PKPN3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MSRequestNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BOMComment4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PKPN4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MSRequestNumber5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BOMComment5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PKPN5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="Dach">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IsDachOrder" Type="Boolean" />
   </EntityType>
 </Schema>
